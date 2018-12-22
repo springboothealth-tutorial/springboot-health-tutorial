@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiyanlou.lesson5.mapper.UserHobbyMapper">
+	<select id="findHobbyById" parameterType="Integer"
+		resultType="com.shiyanlou.lesson5.domain.Hobby">
+		select h.* from
+		user_hobby ub
+		join hobby h
+		on ub.hobby_id = h.id
+		where ub.user_id = #{id};
+	</select>
+	
+	<select id="findUserById" parameterType="Integer"
+		resultType="com.shiyanlou.lesson5.domain.User">
+		select u.id, u.name from
+		user_hobby ub
+		join user u
+		on ub.user_id = u.id
+		where ub.hobby_id = #{id};
+	</select>
+	
+</mapper> 

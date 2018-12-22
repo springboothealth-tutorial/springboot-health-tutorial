@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shiyanlou.lesson5.mapper.CardMapper">
+	<select id="selectById" parameterType="Integer"
+		resultType="com.shiyanlou.lesson5.domain.Card">
+		select id, code, level
+		from card where id = #{id};
+	</select>
+
+	<select id="fuzzySearch" parameterType="com.shiyanlou.lesson5.domain.Card"
+		resultType="com.shiyanlou.lesson5.domain.Card">
+		select id, code, level from
+		card
+		<where>
+			<if test="code != null and code != 0"> code = #{code} </if>
+			<if test="level != null and level != 0"> and level = #{level} </if>
+		</where>
+	</select>
+
+	<select id="selectByLevelId" resultType="com.shiyanlou.lesson5.domain.Card">
+		select id, code, level
+		from card
+		<where>
+		<if test="list.size() > 0 ">
+			level in
+			<foreach item="item" index="index" collection="list" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		</where>
+		
+
+	</select>
+	<select id="selectAll" resultType="com.shiyanlou.lesson5.domain.Card">
+		select id, code, level
+		from
+		card
+	</select>
+
+	<insert id="insert" parameterType="com.shiyanlou.lesson5.domain.Card"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into card(code, level)
+		values(#{code}, #{level});
+	</insert>
+
+	<update id="update" parameterType="com.shiyanlou.lesson5.domain.Card">
+		update card
+		<set>
+			<if test="code != null">
+				code = #{code},
+			</if>
+			<if test="level != null">
+				level = #{level},
+			</if>
+		</set>
+		where id = #{id};
+	</update>
+
+	<delete id="delete" parameterType="Integer">
+		delete from card where id =
+		#{id};
+	</delete>
+</mapper> 

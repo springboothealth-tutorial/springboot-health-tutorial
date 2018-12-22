@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shiyanlou.lesson5.mapper.HobbyMapper">
+	<resultMap type="com.shiyanlou.lesson5.domain.Hobby" id="HobbyInfo">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="description" property="description" />
+		<collection property="users" column="id"
+			ofType="com.shiyanlou.lesson5.domain.User" 
+			select="com.shiyanlou.lesson5.mapper.UserHobbyMapper.findUserById" />
+	</resultMap>
+
+	<select id="selectById" parameterType="Integer" resultMap="HobbyInfo">
+		select id, name, description
+		from hobby where id = #{id};
+	</select>
+
+	<select id="selectBriefById" parameterType="Integer"
+		resultType="com.shiyanlou.lesson5.domain.Hobby">
+		select id, name, description
+		from hobby where id = #{id};
+	</select>
+
+	<select id="selectAll" resultMap="HobbyInfo">
+		select id, name, description
+		from hobby
+	</select>
+
+	<insert id="insert" parameterType="com.shiyanlou.lesson5.domain.Hobby"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into hobby(name,
+		description)
+		values(#{name}, #{description});
+	</insert>
+
+	<update id="update" parameterType="com.shiyanlou.lesson5.domain.Hobby">
+		update hobby
+		<set>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="description != null and description != ''">
+				description = #{description},
+			</if>
+		</set>
+		where id = #{id};
+	</update>
+
+	<delete id="delete" parameterType="Integer">
+		delete from hobby where id =
+		#{id};
+	</delete>
+</mapper> 

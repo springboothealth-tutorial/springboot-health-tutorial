@@ -5,6 +5,8 @@ version: 1.0
 
 # Spring Boot 快速入门
 
+[TOC]
+
 ##  一、实验简介
 
 ### 1.1 实验内容
@@ -23,7 +25,7 @@ version: 1.0
 
 - 第一个`PathVariable`可以是add、subtract、divide、multiply
 
-- 第二、第三个`PathVariable`是两个操作数
+- 第二、第三个`PathVariable`是两个操作数，如下图的20和4
 
   如果操作数正确，可以返回计算结果，如果输入有误，后台拒绝计算，并且返回错误原因。
 

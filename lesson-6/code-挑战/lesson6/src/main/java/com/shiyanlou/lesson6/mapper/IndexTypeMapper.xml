@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.shiyanlou.lesson6.mapper.IndexTypeMapper">	
+	<select id="getAll" resultType="com.shiyanlou.lesson6.domain.IndexType">
+		select id, name, type
+ 		from index_type
+	</select>
+	
+	<insert id="insert" parameterType="com.shiyanlou.lesson6.domain.IndexType"
+	useGeneratedKeys="true" keyProperty="id">
+		insert into index_type(name, type) 
+		values(#{name}, #{type});
+	</insert>
+	
+	<update id="update" parameterType="com.shiyanlou.lesson6.domain.IndexType">
+		update index_type
+		<set>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+		</set>
+		where id = #{id};
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from index_type where id = #{id};
+	</delete>
+</mapper> 

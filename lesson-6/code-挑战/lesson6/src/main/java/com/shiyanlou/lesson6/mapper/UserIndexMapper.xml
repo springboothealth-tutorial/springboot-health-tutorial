@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.shiyanlou.lesson6.mapper.UserIndexMapper">
+	<select id="getById" parameterType="com.shiyanlou.lesson6.domain.UserIndex" 
+	resultType="com.shiyanlou.lesson6.domain.UserIndex">
+		select id, 
+		index_content as indexContent,
+		collect_date as collectDate
+ 		from user_index where user_id = #{userId} and index_type = #{indexType};
+	</select>
+	
+	<insert id="insert" parameterType="com.shiyanlou.lesson6.domain.UserIndex"
+	useGeneratedKeys="true" keyProperty="id">
+		insert into user_index(user_id, index_type, index_content, collect_date) 
+		values(#{userId}, #{indexType}, #{indexContent}, #{collectDate});
+	</insert>
+	
+	<update id="update" parameterType="com.shiyanlou.lesson6.domain.UserIndex">
+		update user_index
+		<set>
+			<if test="userId != null and userId != 0">
+				user_id = #{userId},
+			</if>
+			<if test="indexType != null and indexType != 0">
+				index_type = #{indexType},
+			</if>
+			<if test="indexContent != null and indexContent != 0">
+				index_content = #{indexContent},
+			</if>
+			<if test="collectDate != null">
+				collect_date = #{collectDate},
+			</if>
+		</set>
+		where id = #{id};
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from user_index where id = #{id};
+	</delete>
+</mapper> 

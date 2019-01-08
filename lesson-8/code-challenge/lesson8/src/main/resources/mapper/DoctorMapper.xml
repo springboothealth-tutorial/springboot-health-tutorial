@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shiyanlou.lesson8.dao.DoctorMapper">
+	<resultMap type="com.shiyanlou.lesson8.domain.Doctor" id="DoctorInfo">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="gender" property="gender" />
+		<result column="education" property="education" />
+		<result column="certificate_id" property="certificateId" />
+		<collection property="users" column="id"
+			ofType="com.shiyanlou.lesson8.domain.User" 
+			select="com.shiyanlou.lesson8.dao.UserMapper.selectByDoctorId" />
+	</resultMap>
+
+	<select id="select" parameterType="Integer" resultMap="DoctorInfo">
+		select id, name, gender, education, certificate_id
+		from doctor where id = #{id};
+	</select>
+
+	<select id="selectBriefById" parameterType="Integer"
+		resultType="com.shiyanlou.lesson8.domain.Doctor">
+		select id, name, gender, education, certificate_id
+		from doctor where id = #{id};
+	</select>
+
+	<insert id="insert" parameterType="com.shiyanlou.lesson8.domain.Doctor"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into doctor(name, gender, education, certificate_id)
+		values(#{name}, #{gender}, #{education}, #{certificateId});
+	</insert>
+
+	<update id="update" parameterType="com.shiyanlou.lesson8.domain.Doctor">
+		update doctor
+		<set>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="gender != null and gender != ''">
+				gender = #{gender},
+			</if>
+			<if test="education != null and education != ''">
+				education = #{education},
+			</if>
+			<if test="certificateId != null and certificateId != ''">
+				certificate_id = #{certificateId},
+			</if>
+		</set>
+		where id = #{id};
+	</update>
+
+	<delete id="delete" parameterType="Integer">
+		delete from doctor where id =
+		#{id};
+	</delete>
+</mapper> 

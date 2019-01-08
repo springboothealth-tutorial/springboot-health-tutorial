@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shiyanlou.lesson8.dao.UserMapper">
+	<resultMap type="com.shiyanlou.lesson8.domain.User" id="UserInfo">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="gender" property="gender" />
+		<result column="age" property="age" />
+
+		<association column="doctor_id" property="doctor"
+			javaType="com.shiyanlou.lesson8.domain.Doctor" 
+			select="com.shiyanlou.lesson8.dao.DoctorMapper.selectBriefById" />
+	</resultMap>
+
+	<select id="select" parameterType="Integer" resultMap="UserInfo">
+		select id, name, gender, age, doctor_id
+		from user where id = #{id};
+	</select>
+
+	<select id="selectByDoctorId" resultType="com.shiyanlou.lesson8.domain.User">
+		select id, name, gender, age
+		from user where doctor_id = #{id};
+	</select>
+
+	<insert id="insert" parameterType="com.shiyanlou.lesson8.domain.User"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into user(name, gender,
+		age, doctor_id)
+		values(#{name}, #{gender}, #{age}, #{doctor.id});
+	</insert>
+
+	<update id="update" parameterType="com.shiyanlou.lesson8.domain.User">
+		update user
+		<set>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="gender != null">
+				gender = #{gender},
+			</if>
+			<if test="age != null">
+				age = #{age},
+			</if>
+			<if test="doctor.id != null">
+				doctor_id = #{doctor.id},
+			</if>
+		</set>
+		where id = #{id};
+	</update>
+
+	<delete id="delete" parameterType="Integer">
+		delete from user where id =
+		#{id};
+	</delete>
+</mapper> 

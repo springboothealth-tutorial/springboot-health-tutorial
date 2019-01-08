@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shiyanlou.lesson8.dao.AccountMapper">
+	<select id="select" parameterType="Integer" resultType="Integer">
+		select balance
+		from account where user_id = #{userId};
+	</select>
+	
+	<update id="update" parameterType="com.shiyanlou.lesson8.domain.Account">
+		update account
+		<set>
+			<if test="balance != null and balance != ''">
+				balance = #{balance},
+			</if>
+		</set>
+		where user_id = #{userId};
+	</update>
+</mapper> 

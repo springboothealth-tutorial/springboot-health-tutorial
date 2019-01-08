@@ -195,7 +195,7 @@ mysql> create database lesson6;
 导入数据表
 
 ```sh
-$ mysql -uroot -p112233 lesson6 < dump.sql
+$ mysql -uroot lesson6 < dump.sql
 ```
 
 由下图可见三张数据表的关系。

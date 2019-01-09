@@ -42,9 +42,9 @@
 ## 3.2 项目篇
 
 - [x] [lesson6 - 后台接口开发（用户侧1）](./lesson-6/lesson-6.md)
-- [x] [lesson7 - 后台接口开发（用户侧2）]((./lesson-7/lesson-7.md)
-- [x] [lesson8 - 后台接口开发（健康指导员侧）]((./lesson-8/lesson-8.md)
-- [x] [lesson9 - 后台接口开发（登录、注册）]((./lesson-9/lesson-9.md)
+- [x] [lesson7 - 后台接口开发（用户侧2）](./lesson-7/lesson-7.md)
+- [x] [lesson8 - 后台接口开发（健康指导员侧）](./lesson-8/lesson-8.md)
+- [x] [lesson9 - 后台接口开发（登录、注册）](./lesson-9/lesson-9.md)
 - [ ] [lesson10 - 前端页面开发]()
 
 ## 3.3 课程大纲

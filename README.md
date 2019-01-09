@@ -22,6 +22,7 @@
   - Spring Boot 2.0.6
   - Mybatis 3.4.6
   - MySQL 5.7
+  - Redis 3.0.6
   - curl 7.63.0
 - 前端
   - react
@@ -41,9 +42,9 @@
 ## 3.2 项目篇
 
 - [x] [lesson6 - 后台接口开发（用户侧1）](./lesson-6/lesson-6.md)
-- [x] [lesson7 - 后台接口开发（用户侧2）]()
-- [x] [lesson8 - 后台接口开发（健康指导员侧）]()
-- [ ] [lesson9 - 后台接口开发（登录、注册）]()
+- [x] [lesson7 - 后台接口开发（用户侧2）]((./lesson-7/lesson-7.md)
+- [x] [lesson8 - 后台接口开发（健康指导员侧）]((./lesson-8/lesson-8.md)
+- [x] [lesson9 - 后台接口开发（登录、注册）]((./lesson-9/lesson-9.md)
 - [ ] [lesson10 - 前端页面开发]()
 
 ## 3.3 课程大纲
@@ -58,7 +59,7 @@
 |  6   |      后端接口开发（用户侧1）      | 1.Spring Boot 基础HTTP开发、常用配置 2.Spring Boot 热部署 3.Mybatis 基础配置及CURD操作 4.Mybatis分页 |
 |  7   |      后端接口开发（用户侧2）      |  1.Spring Boot 基础HTTP开发 2.Mybatis 级联查询   |
 |  8   |     后端接口开发（健康指导员侧）     |    1.事务、隔离级别介绍 2.事务实战 3.Mybatis 级联查询     |
-|  9   |     后端接口开发（登录、注册）      |   1.Spring Boot整合redis 2.基于token实现单点登录   |
+|  9   |      后端接口开发（单点登录）      |   1.Spring Boot整合redis 2.基于token实现单点登录   |
 |  10  |         前端页面开发         |   1.React基本使用 2.Antd基本使用3.echarts基本使用    |
 
 ## 3.4 功能介绍

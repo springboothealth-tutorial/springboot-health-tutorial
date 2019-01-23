@@ -1,0 +1,133 @@
+curl -X POST \
+  http://localhost:8080/user/add/ \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"id":1,
+	"name":"123",
+	"gender":"0",
+	"age":25
+}'
+
+curl -X GET \
+  http://localhost:8080/user/findByPathVariable/1
+
+curl -X GET \
+  http://localhost:8080/user/findByRequestParam?id=1
+
+curl -X PUT \
+  'http://localhost:8080/user/modify' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"id":1,
+	"name":"111",
+	"gender":"111",
+	"age":111,
+	"doctor": {
+		"id":"111"
+	}
+}'
+
+curl -X DELETE \
+  'http://localhost:8080/user/delete/1'
+
+curl -X GET \
+  http://localhost:8080/user/getHeader \
+  -H 'token:80808080'
+ 
+curl -X GET \
+  http://localhost:8080/user/getRequest?id=1 \
+
+
+
+
+curl -v -X GET \
+  http://localhost:8080/cookie/set
+
+curl -X GET \
+  --cookie last=1548143106864 \
+  http://localhost:8080/cookie/get
+
+
+curl -X GET \
+  --cookie last=1548143106864 \
+  http://localhost:8080/cookie/getByAnnotation
+
+curl -X POST \
+	http://localhost:8080/file/upload \
+	-F "file=@/home/project/lesson2/pom.xml"
+
+
+curl -X POST \
+  http://localhost:8080/account/add \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"id":"110",  
+	"name":"jacky",
+	"password":"112233",
+	"date":"2019-01-17 12:12:12"
+}'	
+
+
+curl -v -X GET \
+  http://localhost:8080/session/set
+
+
+curl -X GET \
+  http://localhost:8080/session/get \
+    --cookie JSESSIONID=2D9ACAB3DA464B26194EB21927D45524
+
+
+
+curl -X POST \
+  http://localhost:8080/book/add \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"id":1,
+	"name":"java",
+	"author":"goslin",
+	"press":"haha"
+}'
+
+curl -X GET \
+  'http://localhost:8080/book/find?id=1'
+
+curl -X PUT \
+  http://localhost:8080/book/modify \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"id":1,
+	"name":"python",
+	"author":"234",
+	"press":"777"
+}'
+
+curl -X DELETE \
+  'http://localhost:8080/book/delete?id=1'
+
+curl -X GET \
+  'http://localhost:8080/book/findByPagination?pageNum=1&pageSize=3'
+
+
+
+
+
+curl -X GET \
+  http://127.0.0.1:8080/user/online
+
+curl -v -X POST http://127.0.0.1:8080/user/login -H 'Content-Type: application/json' -d '{ "username":"jacky", "password":"112233"}'
+
+curl -X GET \
+  http://127.0.0.1:8080/user/online \
+  --cookie JSESSIONID=2776C90FF1BF416D8813AC661F38724D
+
+curl -X GET \
+  'http://127.0.0.1:8080/user/search?word=china' \
+  --cookie JSESSIONID=2776C90FF1BF416D8813AC661F38724D
+
+curl -X GET \
+  'http://127.0.0.1:8080/user/search?word=apple' \
+  --cookie JSESSIONID=2776C90FF1BF416D8813AC661F38724D
+
+curl -X GET \
+  http://127.0.0.1:8080/user/test \
+  --cookie JSESSIONID=2E53986A6E5B41E0DE8005919A3DC59B

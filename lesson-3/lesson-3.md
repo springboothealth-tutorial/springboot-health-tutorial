@@ -380,8 +380,8 @@ public class AccountControllerTest {
       	// 测试整个过程：
         // 1、MockMvcRequestBuilders.post("/account/add")构造请求
         // 2、mockMvc.perform执行请求
-        // 3、andExpect添加执行完成后需要执行的断言，验证控制器执行完成后结果是否正确；
-        // 4、andDo添加结果处理器，MockMvcResultHandlers.print()表示输出整个响应结果信息
+        // 3、andExpect添加执行完成后需要执行的断言，验证控制器执行完成后结果是否正确
+        // 4、andDo添加结果处理器，比如调试时打印结果到控制台
         // 5、andReturn表示执行完成后返回相应的结果
       
       	// 获取响应消息体	

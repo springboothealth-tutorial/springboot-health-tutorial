@@ -244,13 +244,52 @@ import com.shiyanlou.lesson5.domain.Card;
 
 public interface CardMapper {
 
+  	/**
+	 * 通过id查找card
+	 * @param id
+	 * @return
+	 */
 	Card selectById(int id);
+  
+	/**
+	 * 模糊查找card
+	 * @param card
+	 * @return
+	 */
 	List<Card> fuzzySearch(Card card);
+  
+  	/**
+	 * 查找所有card
+	 * @return
+	 */
 	List<Card> selectAll();
+  
+  	/**
+	 * 通过level查找card
+	 * @param levels
+	 * @return
+	 */
 	List<Card> selectByLevelId(List<Integer> levels);
   
-	int insert(Card job);
-	int update(Card job);
+  	/**
+	 * 创建card
+	 * @param card
+	 * @return
+	 */
+	int insert(Card card);
+  
+  	/**
+	 * 通过id更新card
+	 * @param card
+	 * @return
+	 */
+	int update(Card card);
+  
+  	/**
+	 * 通过id删除card
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);	
 }
 ```
@@ -267,11 +306,45 @@ import com.shiyanlou.lesson5.domain.Job;
 
 public interface JobMapper {
   
+  	/**
+	 * 通过id查找job
+	 * @param id
+	 * @return
+	 */
 	Job selectById(int id);
+  
+  	/**
+	 * 通过id查找job简要信息
+	 * @param id
+	 * @return
+	 */
 	Job selectBriefById(int id);
+  
+  	/**
+	 * 查找所有job
+	 * @return
+	 */
 	List<Job> selectAll();
+  
+  	/**
+	 * 创建job
+	 * @param job
+	 * @return
+	 */
 	int insert(Job job);
+  
+  	/**
+	 * 通过id更新job
+	 * @param job
+	 * @return
+	 */
 	int update(Job job);
+  
+  	/**
+	 * 通过id删除job
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);	
 }
 ```
@@ -287,6 +360,12 @@ import com.shiyanlou.lesson5.domain.Hobby;
 import com.shiyanlou.lesson5.domain.User;
 
 public interface UserHobbyMapper {
+  
+  	/**
+	 * 通过id查找hobby
+	 * @param id
+	 * @return
+	 */
 	public Hobby findHobbyById(int id);
 }
 ```
@@ -303,11 +382,45 @@ import com.shiyanlou.lesson5.domain.User;
 
 public interface UserMapper {
   
+  	/**
+	 * 通过id查找user
+	 * @param id
+	 * @return
+	 */
 	User selectById(int id);
+  
+    /**
+	 * 通过Jobid查找user
+	 * @param id
+	 * @return
+	 */
 	User selectByJobId(int id);
+  
+    /**
+	 * 查找所有用户
+	 * @return
+	 */
 	List<User> selectAll();
+  
+  	/**
+	 * 创建user
+	 * @param user
+	 * @return
+	 */
 	int insert(User user);
+  
+  	/**
+	 * 通过id更新user
+	 * @param user
+	 * @return
+	 */
 	int update(User user);
+  
+	/**
+	 * 通过id删除user
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);
 }
 ```
@@ -569,32 +682,35 @@ public interface UserMapper {
 
 #### 2.2.7 创建domain目录及文件
 
-`ResultObject.java`
-
-`ResultObject`用来封装后台返回结果，`ResultObject这个class有三个属性`
-
-- `code`：表示后台状态
-- `msg`：表示相关消息
-- `result`：表示结果
+`ResultObject.java` 用来封装后台返回结果
 
 ```java
 package com.shiyanlou.lesson5.domain;
 
 public class ResultObject {
 
+  	// 后台状态
 	private int code;
+  	// 相关消息
 	private String msg;
+  	// 结果
 	private Object result;
+  
+  	// 构造函数
 	public ResultObject() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+  
+   	// 构造函数
 	public ResultObject(int code, String msg, Object result) {
 		super();
 		this.code = code;
 		this.msg = msg;
 		this.result = result;
 	}
+  
+  	// 属性的setter、getter方法
 	public int getCode() {
 		return code;
 	}
@@ -613,6 +729,8 @@ public class ResultObject {
 	public void setResult(Object result) {
 		this.result = result;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "ResultObject [code=" + code + ", msg=" + msg + ", result=" + result + "]";
@@ -622,7 +740,7 @@ public class ResultObject {
 
 
 
-`User.java`
+`User.java`  用户类
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -660,11 +778,13 @@ public class User{
 	@JsonInclude(Include.NON_DEFAULT)
 	private List<Hobby> hobbies;
 	
+  	// 构造函数
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+    // 构造函数
 	public User(String name, int gender, int age, Card card, Job job, List<Hobby> hobbies) {
 		super();
 		this.name = name;
@@ -675,6 +795,7 @@ public class User{
 		this.hobbies = hobbies;
 	}
 
+  	// 属性的setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -731,6 +852,7 @@ public class User{
 		this.hobbies = hobbies;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", card=" + card + ", job=" + job + ", hobbies=" + hobbies + "]";
@@ -740,7 +862,7 @@ public class User{
 
 
 
-`Hobby.java`
+`Hobby.java` 爱好类
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -759,15 +881,17 @@ public class Hobby {
   	// 爱好描述
 	private String description;
 	
-  	// 哪些用户用户该爱好
+  	// 拥有同一爱好的用户
 	@JsonInclude(Include.NON_DEFAULT)
 	private List<User> users;
 	
+  	// 构造函数
 	public Hobby() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+   	// 构造函数
 	public Hobby(String name, String description, List<User> users) {
 		super();
 		this.name = name;
@@ -775,6 +899,7 @@ public class Hobby {
 		this.users = users;
 	}
 
+  	// 属性的setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -807,6 +932,7 @@ public class Hobby {
 		this.users = users;
 	}
 
+  	// 重写toString 方法
 	@Override
 	public String toString() {
 		return "Hobby [id=" + id + ", name=" + name + ", description=" + description + ", users=" + users + "]";
@@ -816,7 +942,7 @@ public class Hobby {
 
 
 
-`Job.xml`
+`Job.java` 
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -839,11 +965,13 @@ public class Job {
 	@JsonInclude(Include.NON_DEFAULT)
 	private List<User> users;
 	
+    // 构造函数
 	public Job() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+    // 构造函数
 	public Job(String name, String description, List<User> users) {
 		super();
 		this.name = name;
@@ -851,6 +979,7 @@ public class Job {
 		this.users = users;
 	}
 
+    // 属性的setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -883,6 +1012,7 @@ public class Job {
 		this.users = users;
 	}
 
+    // 重写toString 方法
 	@Override
 	public String toString() {
 		return "Job [id=" + id + ", name=" + name + ", description=" + description + ", users=" + users + "]";
@@ -892,12 +1022,13 @@ public class Job {
 
 
 
-`Card.java`
+`Card.java` 身份证类
 
 ```java
 package com.shiyanlou.lesson5.domain;
 
 public class Card {
+  
   	// 身份证主键id
 	private int id;
   	// 身份证号码
@@ -905,15 +1036,21 @@ public class Card {
   	// 身份证等级
 	private int level;
 	
+    // 构造函数
 	public Card() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+  
+    // 构造函数
 	public Card(int code, int level) {
 		super();
 		this.code = code;
 		this.level = level;
 	}
+  
+  
+    // 属性的setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -932,6 +1069,8 @@ public class Card {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+  
+    // 重写toString 方法
 	@Override
 	public String toString() {
 		return "Card [id=" + id + ", code=" + code + ", level=" + level + "]";
@@ -943,7 +1082,7 @@ public class Card {
 
 #### 2.2.8 创建service目录及文件
 
-`CardService.java`
+`CardService.java` 
 
 ```java
 package com.shiyanlou.lesson5.service;
@@ -1264,14 +1403,19 @@ public class CardController {
 	public ResultObject selectCardByLevelId(String levels) {
 		System.out.println("levels" + levels);
 		System.out.println("levels-length:" + levels.length());
+      
 		String[] strings = levels.split(",");
 		List<Integer> ids = new ArrayList<>(); 
+      
 		System.out.println("strings" + Arrays.toString(strings));
 		System.out.println(strings.length);
+      
 		for(int i = 0; i < levels.length(); i++) {
 			ids.add(Integer.parseInt(strings[i]));
 		}
+      
 		System.out.println("ids" + ids);
+      
 		List<Card> cards = cardService.selectCardByLevelId(ids);
 		Map<String, List<Card>> map = new HashMap<>();
 		map.put("card", cards);

@@ -57,7 +57,7 @@ version: 1.0
 
 - 第一个`PathVariable`可以是add、subtract、divide、multiply
 
-- 第二、第三个`PathVariable`是两个操作数，如下图的20和4
+- 第二、第三个`PathVariable`是两个操作数
 
   如果操作数正确，可以返回计算结果，如果输入有误，后台拒绝计算，并且返回错误原因。
 
@@ -155,17 +155,23 @@ $ rm -rf calculator.zip
   ```java
 package com.shiyanlou.calculator.domain;
 
+// 封装后端返回结果
 public class ResultObject {
 
+  	// 计算结果
 	private double result;
+  	// 返回码
 	private int code;
+  	// 返回消息
 	private String msg;
 
+  	// 构造函数
 	public ResultObject() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
+  	// 构造函数
 	public ResultObject(double result, int code, String msg) {
 		super();
 		this.result = result;
@@ -173,6 +179,7 @@ public class ResultObject {
 		this.msg = msg;
 	}
 
+  	// 属性的getter、setter方法
 	public double getResult() {
 		return result;
 	}
@@ -197,6 +204,7 @@ public class ResultObject {
 		this.msg = msg;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "ResultObject [result=" + result + ", code=" + code + ", msg=" + msg + "]";
@@ -211,11 +219,16 @@ public class ResultObject {
   ```java
 package com.shiyanlou.calculator.service;
 
-
 import com.shiyanlou.calculator.domain.ResultObject;
-
+// service接口
 public interface CalculatorService {
-
+	/**
+	 * 计算
+	 * @param operator 操作符
+	 * @param firstNum 第一个操作数
+	 * @param secondNum 第二个操作数
+	 * @return 响应结果
+	 */
 	public ResultObject compute(String operator, double firstNum, double secondNum);
 }
   ```
@@ -232,27 +245,41 @@ import org.springframework.stereotype.Service;
 import com.shiyanlou.calculator.domain.ResultObject;
 import com.shiyanlou.calculator.service.CalculatorService;
 
-
+// service 实现类
 @Service
 public class CalculatorServiceImpl implements CalculatorService{
 
+  	/**
+	 * 计算
+	 * @param operator 操作符
+	 * @param firstNum 第一个操作数
+	 * @param secondNum 第二个操作数
+	 * @return 响应结果
+	 */
 	@Override
 	public ResultObject compute(String operator, double firstNum, double secondNum) {
+      	// 结果
 		double result = 0;
+      	// 返回码
 		int code = 200;
+      	// 返回消息
 		String msg = "";
+      	// 封装对象
 		ResultObject resultObject;
 
+      	// 根据不同的操作符进行不同的操作
 		switch (operator) {
+        // 加
 		case "add":
 			result = firstNum + secondNum;
 			break;
-
+		// 减
 		case "subtract":
 			result = firstNum - secondNum;
 			break;
-
+		// 除
 		case "divide":
+            // 除数为0，无法计算
 			if (secondNum == 0) {
 				msg = "Wrong Parameter";
 				code = -1;
@@ -261,17 +288,18 @@ public class CalculatorServiceImpl implements CalculatorService{
 				result = firstNum / secondNum;
 			}
 			break;
-
+		// 乘
 		case "multiply":
 			result = firstNum * secondNum;
 			break;
 
+        // 未知的操作符，无法计算
 		default:
 			msg = "Wrong Operator";
 			code = -1;
 			break;
 		}
-
+		// 返回结果
 		resultObject = new ResultObject(result, code, msg);
 		return resultObject;
 	}
@@ -296,9 +324,18 @@ import com.shiyanlou.calculator.service.CalculatorService;
 @RestController
 public class CalculatorController {
 
+  	// 自动注入service
 	@Autowired
 	private CalculatorService sampleService;
 
+  	// 默认请求方法类型为get，URL：/compute/{operator}/{firstNum}/{secondNum}
+  	/**
+	 * 计算
+	 * @param operator 操作符
+	 * @param firstNum 第一个操作数
+	 * @param secondNum 第二个操作数
+	 * @return 响应结果
+	 */
 	@RequestMapping("/compute/{operator}/{firstNum}/{secondNum}")
 	public ResultObject compute(@PathVariable String operator,
 			@PathVariable double firstNum, @PathVariable double secondNum) {
@@ -436,7 +473,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
-      	// 启动内嵌的Tomcat并初始化spring环境极其组件
+      	// 启动内嵌的Tomcat并初始化spring环境及其组件
 		SpringApplication.run(Application.class, args);
 	}
 }
@@ -446,25 +483,27 @@ public class Application {
 
 ##### 4. 创建domain文件
 
-创建`ResultObject`用来封装返回数据。
+创建`ResultObject` 用来封装返回数据。
 
 ```java
 package com.shiyanlou.clock.domain;
 
 public class ResultObject {
 
+    // 结果
 	private double result;
-    // 计算结果
+  	// 状态
 	private String status;
-  	// 后台状态
+    // 原因
 	private String reason;
-    // 计算失败原因
 
+   	// 构造函数
 	public ResultObject() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+  	// 构造函数
 	public ResultObject(double result, String status, String reason) {
 		super();
 		this.result = result;
@@ -497,6 +536,7 @@ public class ResultObject {
 		this.reason = reason;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "ResultObject [result=" + result + ", status=" + status + ", reason=" + reason + "]";
@@ -508,15 +548,20 @@ public class ResultObject {
 
 ##### 5. 创建service文件
 
-接口文件，定义了一个方法
-
 ```java
 package com.shiyanlou.clock.service;
 
 import com.shiyanlou.clock.domain.ResultObject;
 
+// service 接口
 public interface ClockService {
 
+  	/**
+	 * 功能：获取两个日期差值
+	 * @param firstDate 第一个日期
+	 * @param lastDate 第二个日期
+	 * @return 响应结果
+	 */
 	public ResultObject getDiff(String firstDate, String lastDate);
 }
 ```
@@ -536,23 +581,35 @@ import org.springframework.stereotype.Service;
 import com.shiyanlou.clock.domain.ResultObject;
 import com.shiyanlou.clock.service.ClockService;
 
+// service 实现类
 @Service
 public class ClockServiceImpl implements ClockService{
 
+  	/**
+	 * 功能：获取两个日期差值
+	 * @param firstDate 第一个日期
+	 * @param lastDate 第二个日期
+	 * @return 响应结果
+	 */
 	public ResultObject getDiff(String firstDate, String lastDate){
 		ResultObject resultObject = null;
 
+      	// 设置解析格式
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date formatFirstDate = null, formatLastDate = null;
 
 		try {
+          	// 解析参数
 			formatFirstDate = dateFormat.parse(firstDate);
 			formatLastDate = dateFormat.parse(lastDate);
 		} catch (Exception e) {
+          	// 若有异常，直接返回失败
 			resultObject = new ResultObject(0, "fail", "parameter error");
 			return resultObject;
 		}
+      	// 计算差值，单位为毫秒，所以需要 /(24 * 60 * 60 * 1000)
 		long day = (formatFirstDate.getTime() - formatLastDate.getTime()) / (24 * 60 * 60 * 1000);
+      	// 返回正确结果
 		resultObject = new ResultObject(day, "success", "");
 		return resultObject;
 	}
@@ -580,10 +637,17 @@ import com.shiyanlou.clock.service.ClockService;
 @RequestMapping("clock")
 public class ClockController {
 
+  	// 自动注入service
 	@Autowired
 	ClockService clockService;
 
   	// @GetMapping是一个组合注解 是@RequestMapping(method = RequestMethod.GET)的缩写
+  	 /**
+	 * 功能：获取两个日期差值
+	 * @param firstDate 第一个日期
+	 * @param lastDate 第二个日期
+	 * @return 响应结果
+	 */
 	@GetMapping("get/{firstDate}/{lastDate}")
 	public ResultObject getClock(@PathVariable String firstDate, @PathVariable String lastDate) {
 		ResultObject resultObject = clockService.getDiff(firstDate, lastDate);

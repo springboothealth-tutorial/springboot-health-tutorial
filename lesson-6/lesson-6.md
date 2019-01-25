@@ -5,26 +5,26 @@ version: 1.0
 
 # 后台接口开发(用户侧-1)
 
-   * [后台接口开发(用户侧-1)](#后台接口开发用户侧-1)
-      * [一、实验简介](#一实验简介)
-         * [1.1 实验内容](#11-实验内容)
-         * [1.2 实验知识点](#12-实验知识点)
-         * [1.3 效果展示](#13-效果展示)
-         * [1.4 实验环境](#14-实验环境)
-      * [二、实验步骤](#二实验步骤)
-        ​    * [2.1 项目结构](#21-项目结构)
-        ​    * [2.2 创建项目](#22-创建项目)
-        ​    * [2.3 修改pom文件](#23-修改pom文件)
-        ​    * [2.4 创建application文件](#24-创建application文件)
-        ​    * [2.5 创建数据库和数据表](#25-创建数据库和数据表)
-        ​    * [2.6 创建mapper目录及文件](#26-创建mapper目录及文件)
-        ​    * [2.7 创建domain目录及文件](#27-创建domain目录及文件)
-        ​    * [2.8 创建service目录及文件](#28-创建service目录及文件)
-        ​    * [2.9 创建serviceImpl目录及文件](#29-创建serviceimpl目录及文件)
-        ​    * [2.10 创建controller目录及文件](#210-创建controller目录及文件)
-        ​    * [2.11 创建启动类文件](#211-创建启动类文件)
-        ​    * [2.12 访问测试](#212-访问测试)
-      * [三、实验总结](#三实验总结)
+* [后台接口开发(用户侧-1)](#后台接口开发用户侧-1)
+     * [一、实验简介](#一实验简介)
+        * [1.1 实验内容](#11-实验内容)
+        * [1.2 实验知识点](#12-实验知识点)
+        * [1.3 效果展示](#13-效果展示)
+        * [1.4 实验环境](#14-实验环境)
+     * [二、实验步骤](#二实验步骤)
+       ​    * [2.1 项目结构](#21-项目结构)
+       ​    * [2.2 创建项目](#22-创建项目)
+       ​    * [2.3 修改pom文件](#23-修改pom文件)
+       ​    * [2.4 创建application文件](#24-创建application文件)
+       ​    * [2.5 创建数据库和数据表](#25-创建数据库和数据表)
+       ​    * [2.6 创建mapper目录及文件](#26-创建mapper目录及文件)
+       ​    * [2.7 创建domain目录及文件](#27-创建domain目录及文件)
+       ​    * [2.8 创建service目录及文件](#28-创建service目录及文件)
+       ​    * [2.9 创建serviceImpl目录及文件](#29-创建serviceimpl目录及文件)
+       ​    * [2.10 创建controller目录及文件](#210-创建controller目录及文件)
+       ​    * [2.11 创建启动类文件](#211-创建启动类文件)
+       ​    * [2.12 访问测试](#212-访问测试)
+     * [三、实验总结](#三实验总结)
 
 ##  一、实验简介
 
@@ -80,12 +80,12 @@ $ mvn archetype:generate -DgroupId=com.shiyanlou -DartifactId=lesson6 -Darchetyp
 
 - `archetype:generate`：表示使用maven创建项目基本骨架
 - `DgroupId`：该项目所属组织，一般将域名倒着写，例如：com.shiyanlou
-- `DartifactId`：项目名称，例如：clock
+- `DartifactId`：项目名称，例如：lesson6
 - `DarchetypeArtifactId`：指定所用maven项目骨架类型
 
 输入命令后，maven开始创建项目、下载所需的依赖，等待片刻，maven提示我们输入版本号，直接回车，我们使用默认版本号`1.0-SNAPSHOT`即可。随后maven会输出`groupId`、`artifactId`、`version`、`package`这些基本信息，直接输入`Y`确认即可。最后可以看到绿色的`BUILD SUCCESS`项目创建成功的提示。
 
-然后在web IDE界面中，选择File -> Open Workspace切换工作空间，选择lesson5目录，必须切换到该目录下，否则识别不了项目。
+然后在web IDE界面中，选择File -> Open Workspace切换工作空间，选择lesson6目录，必须切换到该目录下，否则识别不了项目。
 
 最后大家可以根据上图所示的目录结构，自己创建目录、文件，较为简单，无需赘述。
 
@@ -236,14 +236,38 @@ import com.shiyanlou.lesson6.domain.User;
 
 public interface UserMapper {
 
+  	/**
+	 * 通过id获取用户
+	 * @param id
+	 * @return
+	 */
 	User getById(int id);
 	
+  	/**
+	 * 获取所有用户
+	 * @return
+	 */
 	List<User> getAll();
 	
+ 	 /**
+	 * 创建用户
+	 * @param user
+	 * @return
+	 */
 	int insert(User user);
 	
+ 	 /**
+	 * 通过id更新用户
+	 * @param user
+	 * @return
+	 */
 	int update(User user);
 	
+ 	 /**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);
 	
 }
@@ -262,12 +286,32 @@ import com.shiyanlou.lesson6.domain.UserIndex;
 
 public interface UserIndexMapper {
 
+	 /**
+	 * 通过用户id和指标类型获取用户的所有指标
+	 * @param userIndex
+	 * @return
+	 */
 	List<UserIndex> getById(UserIndex userIndex);
 		
+  	/**
+	 * 创建用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	int insert(UserIndex userIndex);
 	
+  	/**
+	 * 更新用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	int update(UserIndex userIndex);
 	
+  	/**
+	 * 删除用户生理指标数据
+	 * @param userIndexId
+	 * @return
+	 */
 	int delete(int userIndexId);
 	
 }
@@ -390,30 +434,35 @@ public interface UserIndexMapper {
 
 #### 2.7 创建domain目录及文件
 
-`ResultObject`三个属性分别是
-
-- `code`：后台状态
-- `msg`：相关消息
-- `result`：结果
+`ResultObject` 封装后端返回数据
 
 ```java
 package com.shiyanlou.lesson6.domain;
 
 public class ResultObject {
-
+	
+  	// 后台状态
 	private int code;
+  	// 相关消息
 	private String msg;
+  	// 结果
 	private Object result;
+  
+  	// 构造函数
 	public ResultObject() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+  
+  	// 构造函数
 	public ResultObject(int code, String msg, Object result) {
 		super();
 		this.code = code;
 		this.msg = msg;
 		this.result = result;
 	}
+  
+  	// 属性的setter、getter方法
 	public int getCode() {
 		return code;
 	}
@@ -432,6 +481,8 @@ public class ResultObject {
 	public void setResult(Object result) {
 		this.result = result;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "ResultObject [code=" + code + ", msg=" + msg + ", result=" + result + "]";
@@ -441,7 +492,7 @@ public class ResultObject {
 
 
 
-`User.java`
+`User.java` 用户类
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -450,28 +501,30 @@ import java.sql.Date;
 
 public class User{
 
+  	// 用户id
 	private int id;
-	
-//	@JsonProperty("account")
+	// 用户姓名
 	private String name;
+  	// 用户性别
 	private int gender;
+  	// 用户年龄
 	private int age;
-	
-//	@JsonIgnore
+	// 用户手机号
 	private String phone;
-	
-//	@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss", locale="zh", timezone="GMT+8")	
-	private Date createTime;
-	
+	// 创建时间
+  	private Date createTime;
+	// 用户工作
 	private int job;
+  	// 用户地址
 	private String address;
 	
-	
+  	// 构造函数
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
+    // 构造函数
 	public User(String name, int gender, int age, String phone, Date createTime, int job, String address) {
 		super();
 		this.name = name;
@@ -483,6 +536,7 @@ public class User{
 		this.address = address;
 	}
 
+  	// 属性的setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -519,23 +573,20 @@ public class User{
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-
 	public int getJob() {
 		return job;
 	}
-
 	public void setJob(int job) {
 		this.job = job;
 	}
-
 	public String getAddress() {
 		return address;
 	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", phone=" + phone
@@ -547,15 +598,9 @@ public class User{
 
 
 
-`UserIndex.java`
+`UserIndex.java` 用户生理指标类
 
 其中属性含义如下：
-
-- `id`：自增`id`在`delete`和`update`时会使用
-- `userId`：用户id
-- `indexType`：生理指标类型，包括（体重、血压、血糖、血脂、心率等）
-- `indexConent`：生理指标值
-- `collectDate`：用户上传日期
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -567,17 +612,30 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class UserIndex {
 
+  	// 自增id在delete和update时会使用
 	private int id;
+  
+  	// 用户id
 	@JsonInclude(Include.NON_DEFAULT)
 	private int userId;
+  
+  	// 生理指标类型，包括（体重、血压、血糖、血脂、心率等）
 	@JsonInclude(Include.NON_DEFAULT)
 	private int indexType;
+  
+  	// 生理指标值
 	private int indexContent;
+  
+  	// 用户上传日期
 	private Date collectDate;
+  
+  	// 构造函数
 	public UserIndex() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+  
+    // 构造函数
 	public UserIndex(int userId, int indexType, int indexContent, Date collectDate) {
 		super();
 		this.userId = userId;
@@ -585,6 +643,8 @@ public class UserIndex {
 		this.indexContent = indexContent;
 		this.collectDate = collectDate;
 	}
+  
+  	// 属性getter、setter方法
 	public int getId() {
 		return id;
 	}
@@ -615,38 +675,40 @@ public class UserIndex {
 	public void setCollectDate(Date collectDate) {
 		this.collectDate = collectDate;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "UserIndex [id=" + id + ", userId=" + userId + ", indexType=" + indexType + ", indexContent="
-				+ indexContent + ", collectDate=" + collectDate + "]";
+		return "UserIndex [id=" + id + ", userId=" + userId + ", indexType=" + indexType + ", indexContent=" + indexContent + ", collectDate=" + collectDate + "]";
 	}
 }
 ```
 
 
 
-`PaginationObject.java`
-
-其中属性含义如下
-
-- `pageNum`：第几页
-- `pageSize`：每页记录个数
-- `total`：记录总数
-- `list`：结果
+`PaginationObject.java` 支持分页查询类
 
 ```java
 package com.shiyanlou.lesson6.domain;
 
 public class PaginationObject {
-
+	
+  	// 结果
 	private Object list;
+  	// 第几页
 	private int pageNum;
+  	// 每页记录个数
 	private int pageSize;
+  	// 记录总数
 	private long total;
+  
+  	// 构造函数
 	public PaginationObject() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+  
+   	// 构造函数
 	public PaginationObject(Object list, int pageNum, int pageSize, long total) {
 		super();
 		this.list = list;
@@ -654,6 +716,8 @@ public class PaginationObject {
 		this.pageSize = pageSize;
 		this.total = total;
 	}
+  
+  	// 属性getter、setter方法
 	public Object getList() {
 		return list;
 	}
@@ -678,10 +742,11 @@ public class PaginationObject {
 	public void setTotal(long total) {
 		this.total = total;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "PaginationObject [list=" + list + ", pageNum=" + pageNum + ", pageSize=" + pageSize + ", total=" + total
-				+ "]";
+		return "PaginationObject [list=" + list + ", pageNum=" + pageNum + ", pageSize=" + pageSize + ", total=" + total + "]";
 	}
 }
 ```
@@ -701,14 +766,39 @@ import com.shiyanlou.lesson6.domain.User;
 
 public interface UserService {
 
+  	/**
+	 * 创建用户
+	 * @param user
+	 * @return
+	 */
 	public int insertUser(User user);
 	
+  	/**
+	 * 通过id查询用户
+	 * @param id
+	 * @return
+	 */
 	public User getUserById(int id);
 	
+  	/**
+	 * 分页查询用户
+	 * @param pageNum 第几页，pageSize 每页几个
+	 * @return
+	 */
 	public PaginationObject getAllUser(int pageNum, int pageSize);
 	
+  	/**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
 	public int updateUser(User user); 
 	
+  	/**
+	 * 删除用户
+	 * @param user
+	 * @return
+	 */
 	public int deleteUser(int id);
 }
 ```
@@ -726,12 +816,32 @@ import com.shiyanlou.lesson6.domain.UserIndex;
 
 public interface UserIndexService {
 	
+  	/**
+	 * 通过userID、类型查询用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	public List<UserIndex> getUserIndexById(UserIndex userIndex);
 	
+  	/**
+	 * 创建用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	public int insertUserIndex(UserIndex userIndex);
 	
+  	/**
+	 * 更新用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	public int updateUserIndex(UserIndex userIndex);
 	
+  	/**
+	 * 删除用户生理指标数据
+	 * @param userIndexId
+	 * @return
+	 */
 	public int deleteUserIndex(int userIndexId);
 }
 ```
@@ -758,25 +868,41 @@ import com.shiyanlou.lesson6.domain.User;
 import com.shiyanlou.lesson6.mapper.UserMapper;
 import com.shiyanlou.lesson6.service.UserService;
 
-
-
+// 标记service
 @Service
 public class UserServiceImpl implements UserService{
-
+	
+  	// 自动注入mapper
 	@Autowired
 	private UserMapper userMapper;
 	
+  	/**
+	 * 创建用户
+	 * @param user
+	 * @return
+	 */
 	public int insertUser(User user) {
+      	// 设置创建时间
 		user.setCreateTime(new java.sql.Date(new Date().getTime()));
 		int modifyId = userMapper.insert(user);
 		return modifyId; 
 	}
 	
+  	/**
+	 * 根据id查询用户
+	 * @param user
+	 * @return
+	 */
 	public User getUserById(int id){
 		User user = userMapper.getById(id);
 		return user;
 	}
 	
+  	/**
+	 * 分页查询用户
+	 * @param pageNum, pageSize
+	 * @return
+	 */
 	public PaginationObject getAllUser(int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		List<User> users = userMapper.getAll();
@@ -786,11 +912,21 @@ public class UserServiceImpl implements UserService{
 		return paginationObject;
 	}
 	
+  	/**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
 	public int updateUser(User user) {
 		int modifyId = userMapper.update(user);
 		return modifyId;
 	} 
 	
+  	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	public int deleteUser(int id) {
 		int modifyId = userMapper.delete(id);
 		return modifyId;
@@ -815,30 +951,51 @@ import com.shiyanlou.lesson6.domain.UserIndex;
 import com.shiyanlou.lesson6.mapper.UserIndexMapper;
 import com.shiyanlou.lesson6.service.UserIndexService;
 
-
-
+// 标记service
 @Service
 public class UserIndexServiceImp implements UserIndexService{
 
+  	// 自动注入mapper
 	@Autowired
 	private UserIndexMapper userIndexMapper;	
 	
+  	/**
+	 * 通过userID、类型查询用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	public List<UserIndex> getUserIndexById(UserIndex userIndex) {
 		List<UserIndex> userIndexs = userIndexMapper.getById(userIndex);
 		return userIndexs;
 	}
 	
+  	/**
+	 * 创建用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	public int insertUserIndex(UserIndex userIndex) {
+      	// 设置创建时间
 		userIndex.setCollectDate(new java.sql.Date(new Date().getTime()));
 		int modifyId = userIndexMapper.insert(userIndex);
 		return modifyId; 
 	}
 	
+  	/**
+	 * 更新用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	public int updateUserIndex(UserIndex userIndex) {
 		int modifyId = userIndexMapper.update(userIndex);
 		return modifyId;
 	}
 	
+  	/**
+	 * 删除用户生理指标数据
+	 * @param userIndexId
+	 * @return
+	 */
 	public int deleteUserIndex(int userIndexId) {
 		int modifyId = userIndexMapper.delete(userIndexId);
 		return modifyId;
@@ -875,14 +1032,20 @@ import com.shiyanlou.lesson6.domain.ResultObject;
 import com.shiyanlou.lesson6.domain.User;
 import com.shiyanlou.lesson6.service.UserService;
 
-
+// 标记controller
 @RestController
 @RequestMapping("api/v1/user")
 public class UserController {
 	
+    // 自动注入service
 	@Autowired
 	private UserService userService;
 	
+  	/**
+	 * 创建用户
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject insertUser(@RequestBody User user) {
 		int modifyId = userService.insertUser(user);
@@ -892,6 +1055,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 查询用户
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("get")
 	public ResultObject getUserById(@RequestParam int id) {
 		User user = userService.getUserById(id);
@@ -899,6 +1067,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 分页查询用户
+	 * @param pageNum, pageSize
+	 * @return
+	 */
 	@GetMapping("list")
 	public ResultObject getAllUser(@RequestParam int pageNum, @RequestParam int pageSize) {
 		PaginationObject paginationObj = userService.getAllUser(pageNum, pageSize);
@@ -906,6 +1079,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete")
 	public ResultObject deleteUser(@RequestParam int id) {
 		int modifyId = userService.deleteUser(id);
@@ -915,6 +1093,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
 	@PutMapping("edit")
 	public ResultObject updateUser(@RequestBody User user) {
 		int modifyId = userService.updateUser(user);
@@ -952,14 +1135,20 @@ import com.shiyanlou.lesson6.domain.ResultObject;
 import com.shiyanlou.lesson6.domain.UserIndex;
 import com.shiyanlou.lesson6.service.UserIndexService;
 
-
+// 标记controller
 @RestController
 @RequestMapping("api/v1/userIndex")
 public class UserIndexController {
 	
+  	// 自动注入service
 	@Autowired
 	private UserIndexService userIndexService;
 	
+  	/**
+	 * 创建用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject insertUserIndex(@RequestBody UserIndex userIndex) {
 		int modifyId = userIndexService.insertUserIndex(userIndex);
@@ -969,6 +1158,11 @@ public class UserIndexController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 通过userID、类型查询用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	@GetMapping("get")
 	public ResultObject getUserIndexById(@RequestBody UserIndex userIndex) {
 		List<UserIndex> userIndexIndexs = userIndexService.getUserIndexById(userIndex);
@@ -976,6 +1170,11 @@ public class UserIndexController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 删除用户生理指标数据
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete")
 	public ResultObject deleteUserIndex(@RequestParam int id) {
 		int modifyId = userIndexService.deleteUserIndex(id);
@@ -985,6 +1184,11 @@ public class UserIndexController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 修改用户生理指标数据
+	 * @param userIndex
+	 * @return
+	 */
 	@PutMapping("edit")
 	public ResultObject updateUserIndex(@RequestBody UserIndex userIndex) {
 		int modifyId = userIndexService.updateUserIndex(userIndex);
@@ -1010,6 +1214,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// 程序启动入口
 @SpringBootApplication
 @MapperScan("com.shiyanlou.lesson6.mapper")
 public class MainApplication {

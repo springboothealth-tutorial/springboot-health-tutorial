@@ -1091,12 +1091,53 @@ import java.util.List;
 import com.shiyanlou.lesson5.domain.Card;
 
 public interface CardService {
+  
+  	/**
+	 * 创建card
+	 * @param card
+	 * @return
+	 */
 	public int insertCard(Card card);
+  
+  	/**
+	 * 删除card
+	 * @param id
+	 * @return
+	 */
 	public int deleteCard(int id);
+  
+  	/**
+	 * 更新card
+	 * @param card
+	 * @return
+	 */
 	public int updateCard(Card card);
+  
+  	/**
+	 * 通过id查找card
+	 * @param id
+	 * @return
+	 */
 	public Card selectCardById(int id);
+  
+  	/**
+	 * 查找所有card
+	 * @return
+	 */
 	public List<Card> selectAllCard();
+  
+  	/**
+	 * 模糊查询card
+	 * @param card
+	 * @return
+	 */
 	public List<Card> fuzzySearch(Card card);
+  
+  	/**
+	 * 通过levelIds查找card
+	 * @param levels
+	 * @return
+	 */
 	public List<Card> selectCardByLevelId(List<Integer> levels);
 }
 ```
@@ -1112,10 +1153,40 @@ import java.util.List;
 import com.shiyanlou.lesson5.domain.Job;
 
 public interface JobService {
+
+  	/**
+	 * 创建job
+	 * @param id
+	 * @return
+	 */
 	public int insertJob(Job job);
+  
+  	/**
+	 * 删除job
+	 * @param id
+	 * @return
+	 */
 	public int deleteJob(int id);
+  
+  	/**
+	 * 更新job
+	 * @param job
+	 * @return
+	 */
 	public int updateJob(Job job);
+  
+  	/**
+	 * 通过id查找job
+	 * @param id
+	 * @return
+	 */
 	public Job selectJobById(int id);
+  
+  	/**
+	 * 查找所有job
+	 * @param 
+	 * @return
+	 */
 	public List<Job> selectAllJob();
 }
 ```
@@ -1131,10 +1202,40 @@ import java.util.List;
 import com.shiyanlou.lesson5.domain.User;
 
 public interface UserService {
+  
+  	/**
+	 * 创建user
+	 * @param user
+	 * @return
+	 */
 	public int insertUser(User user);
+  
+  	/**
+	 * 删除user
+	 * @param id
+	 * @return
+	 */
 	public int deleteUser(int id);
+  
+  	/**
+	 * 更新user
+	 * @param user
+	 * @return
+	 */
 	public int updateUser(User user);
+  
+  	/**
+	 * 通过id查询user
+	 * @param id
+	 * @return
+	 */
 	public User selectUserById(int id);
+  
+  	/**
+	 * 查询所有user
+	 * @param
+	 * @return
+	 */
 	public List<User> selectAllUser();
 }
 ```
@@ -1157,42 +1258,79 @@ import com.shiyanlou.lesson5.domain.Card;
 import com.shiyanlou.lesson5.mapper.CardMapper;
 import com.shiyanlou.lesson5.service.CardService;
 
+// 标识service
 @Service
 public class CardServiceImpl implements CardService{
 
+  	// 自动注入mapper
 	@Autowired
 	private CardMapper cardMapper;
 	
+    /**
+	 * 创建card
+	 * @param card
+	 * @return
+	 */
 	public int insertCard(Card card) {
 		int modifyId = cardMapper.insert(card);
 		return modifyId;
 	}
-	
+		
+    /**
+	 * 删除card
+	 * @param id
+	 * @return
+	 */
 	public int deleteCard(int id) {
 		int modifyId = cardMapper.delete(id);
 		return modifyId;
 	}
-	
+		
+    /**
+	 * 更新card
+	 * @param card
+	 * @return
+	 */
 	public int updateCard(Card card) {
 		int modifyId = cardMapper.update(card);
 		return modifyId;
 	}
-	
+		
+    /**
+	 * 通过id查询card
+	 * @param id
+	 * @return
+	 */
 	public Card selectCardById(int id) {
 		Card card = cardMapper.selectById(id);
 		return card;
 	}
-	
+		
+    /**
+	 * 查询所有card
+	 * @param
+	 * @return
+	 */
 	public List<Card> selectAllCard() {
 		List<Card> cards = cardMapper.selectAll();
 		return cards;
 	}
-	
+		
+    /**
+	 * 模糊查询card
+	 * @param card
+	 * @return
+	 */
 	public List<Card> fuzzySearch(Card card) {
 		List<Card> cards = cardMapper.fuzzySearch(card);
 		return cards;
 	}
-	
+		
+    /**
+	 * 通过levels查询card
+	 * @param levels
+	 * @return
+	 */
 	public List<Card> selectCardByLevelId(List<Integer> levels) {
 		List<Card> cards = cardMapper.selectByLevelId(levels);
 		return cards;
@@ -1216,33 +1354,59 @@ import com.shiyanlou.lesson5.domain.Job;
 import com.shiyanlou.lesson5.mapper.JobMapper;
 import com.shiyanlou.lesson5.service.JobService;
 
-
+// 标识service
 @Service
 public class JobServiceImpl implements JobService{
 
+    // 自动注入mapper
 	@Autowired
 	private JobMapper jobMapper;
-	
+	 
+  	/**
+	 * 创建job
+	 * @param job
+	 * @return
+	 */
 	public int insertJob(Job job) {
 		int modifyId = jobMapper.insert(job);
 		return modifyId;
 	}
-	
+  
+	/**
+	 * 删除job
+	 * @param id
+	 * @return
+	 */
 	public int deleteJob(int id) {
 		int modifyId = jobMapper.delete(id);
 		return modifyId;
 	}
-	
+  
+	/**
+	 * 更新job
+	 * @param job
+	 * @return
+	 */
 	public int updateJob(Job job) {
 		int modifyId = jobMapper.update(job);
 		return modifyId;
 	}
-	
+  
+	/**
+	 * 通过id查询job
+	 * @param id
+	 * @return
+	 */
 	public Job selectJobById(int id) {
 		Job job = jobMapper.selectById(id);
 		return job;
 	}
-	
+  
+	/**
+	 * 查询所有job
+	 * @param
+	 * @return
+	 */
 	public List<Job> selectAllJob() {
 		List<Job> jobs = jobMapper.selectAll();
 		return jobs;
@@ -1266,33 +1430,59 @@ import com.shiyanlou.lesson5.domain.User;
 import com.shiyanlou.lesson5.mapper.UserMapper;
 import com.shiyanlou.lesson5.service.UserService;
 
-
+// 标识service
 @Service
 public class UserServiceImpl implements UserService{
 
+    // 自动注入mapper
 	@Autowired
 	private UserMapper userMapper;
 	
+  	/**
+	 * 创建user
+	 * @param user
+	 * @return
+	 */
 	public int insertUser(User user) {
 		int modifyId = userMapper.insert(user);
 		return modifyId;
 	}
-	
+	 
+  	/**
+	 * 删除user
+	 * @param id
+	 * @return
+	 */
 	public int deleteUser(int id) {
 		int modifyId = userMapper.delete(id);
 		return modifyId;
 	}
 	
+  	/**
+	 * 更新user
+	 * @param user
+	 * @return
+	 */
 	public int updateUser(User user) {
 		int modifyId = userMapper.update(user);
 		return modifyId;
 	}
 	
+  	/**
+	 * 通过id查询user
+	 * @param id
+	 * @return
+	 */
 	public User selectUserById(int id) {
 		User user = userMapper.selectById(id);
 		return user;
 	}
 	
+  	/**
+	 * 查询所有user
+	 * @param
+	 * @return
+	 */
 	public List<User> selectAllUser() {
 		List<User> users = userMapper.selectAll();
 		return users;
@@ -1338,13 +1528,20 @@ import com.shiyanlou.lesson5.domain.Card;
 import com.shiyanlou.lesson5.domain.ResultObject;
 import com.shiyanlou.lesson5.service.CardService;
 
+// 标识controller，返回消息为json格式，URL前缀/card
 @RestController
 @RequestMapping("card")
 public class CardController {
 	
+    // 自动注入service
 	@Autowired
 	private CardService cardService;
 	
+  	/**
+	 * 创建card
+	 * @param card
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject add(@RequestBody Card card) {
 		int modifyId = cardService.insertCard(card);
@@ -1354,6 +1551,11 @@ public class CardController {
 		return resultObject;
 	}
 
+  	/**
+	 * 删除card
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete/{id}")
 	public ResultObject delete(@PathVariable int id) {
 		int modifyId = cardService.deleteCard(id);
@@ -1363,6 +1565,11 @@ public class CardController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 更新card
+	 * @param card
+	 * @return
+	 */
 	@PutMapping("modify")
 	public ResultObject modify(@RequestBody Card card) {
 		int modifyId = cardService.updateCard(card);
@@ -1372,6 +1579,11 @@ public class CardController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 通过id查询card
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("find/{id}")
 	public ResultObject find(@PathVariable int id) {
 		Card card = cardService.selectCardById(id);
@@ -1381,6 +1593,11 @@ public class CardController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 查询所有card
+	 * @param
+	 * @return
+	 */
 	@GetMapping("findAll")
 	public ResultObject findAll() {
 		List<Card> cards = cardService.selectAllCard();
@@ -1390,6 +1607,12 @@ public class CardController {
 		return resultObject;
 	}
 	
+  
+  	/**
+	 * 模糊查询card
+	 * @param card
+	 * @return
+	 */
 	@PostMapping("fuzzySearch")
 	public ResultObject fuzzySearch(Card card) {
 		List<Card> cards = cardService.fuzzySearch(card);
@@ -1399,6 +1622,11 @@ public class CardController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 通过levels查询card
+	 * @param levels
+	 * @return
+	 */
 	@PostMapping("findByLevelId")
 	public ResultObject selectCardByLevelId(String levels) {
 		System.out.println("levels" + levels);
@@ -1451,13 +1679,20 @@ import com.shiyanlou.lesson5.domain.Job;
 import com.shiyanlou.lesson5.domain.ResultObject;
 import com.shiyanlou.lesson5.service.JobService;
 
+// 标识controller，返回消息为json格式，URL前缀/job
 @RestController
 @RequestMapping("job")
 public class JobController {
 	
+    // 自动注入service
 	@Autowired
 	private JobService jobService;
 	
+  	/**
+	 * 创建job
+	 * @param job
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject add(@RequestBody Job job) {
 		int modifyId = jobService.insertJob(job);
@@ -1466,7 +1701,12 @@ public class JobController {
 		ResultObject resultObject = new ResultObject(200, "success", map);
 		return resultObject;
 	}
-
+  
+	/**
+	 * 删除job
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete/{id}")
 	public ResultObject delete(@PathVariable int id) {
 		int modifyId = jobService.deleteJob(id);
@@ -1476,6 +1716,11 @@ public class JobController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 更新job
+	 * @param job
+	 * @return
+	 */
 	@PutMapping("modify")
 	public ResultObject modify(@RequestBody Job job) {
 		int modifyId = jobService.updateJob(job);
@@ -1485,6 +1730,11 @@ public class JobController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 查询job
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("find/{id}")
 	public ResultObject find(@PathVariable int id) {
 		Job job = jobService.selectJobById(id);
@@ -1494,6 +1744,11 @@ public class JobController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 查询所有job
+	 * @param
+	 * @return
+	 */
 	@GetMapping("findAll")
 	public ResultObject findAll() {
 		List<Job> jobs = jobService.selectAllJob();
@@ -1530,13 +1785,20 @@ import com.shiyanlou.lesson5.domain.ResultObject;
 import com.shiyanlou.lesson5.domain.User;
 import com.shiyanlou.lesson5.service.UserService;
 
+// 标识controller，返回消息为json格式，URL前缀/user
 @RestController
 @RequestMapping("user")
 public class UserController {
 	
+    // 自动注入service
 	@Autowired
 	private UserService userService;
 	
+  	/**
+	 * 创建user
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject add(@RequestBody User user) {
 		int modifyId = userService.insertUser(user);
@@ -1545,7 +1807,12 @@ public class UserController {
 		ResultObject resultObject = new ResultObject(200, "success", map);
 		return resultObject;
 	}
-	
+	  
+  	/**
+	 * 删除user
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete/{id}")
 	public ResultObject delete(@PathVariable int id) {
 		int modifyId = userService.deleteUser(id);
@@ -1555,6 +1822,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+    /**
+	 * 更新user
+	 * @param user
+	 * @return
+	 */
 	@PutMapping("modify")
 	public ResultObject modify(@RequestBody User user) {
 		int modifyId = userService.updateUser(user);
@@ -1564,6 +1836,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+    /**
+	 * 查询user
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("find/{id}")
 	public ResultObject find(@PathVariable int id) {
 		User user = userService.selectUserById(id);
@@ -1573,6 +1850,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+    /**
+	 * 查询user
+	 * @param
+	 * @return
+	 */
 	@GetMapping("findAll")
 	public ResultObject findAll() {
 		List<User> users = userService.selectAllUser();
@@ -1599,6 +1881,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// springboot主入口
 @SpringBootApplication
 @MapperScan("com.shiyanlou.lesson5.mapper")
 public class MainApplication {

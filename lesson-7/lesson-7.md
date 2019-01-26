@@ -87,7 +87,7 @@ $ mvn archetype:generate -DgroupId=com.shiyanlou -DartifactId=lesson7 -Darchetyp
 
 - `archetype:generate`：表示使用maven创建项目基本骨架
 - `DgroupId`：该项目所属组织，一般将域名倒着写，例如：com.shiyanlou
-- `DartifactId`：项目名称，例如：clock
+- `DartifactId`：项目名称，例如：lesson7
 - `DarchetypeArtifactId`：指定所用maven项目骨架类型
 
 输入命令后，maven开始创建项目、下载所需的依赖，等待片刻，maven提示我们输入版本号，直接回车，我们使用默认版本号`1.0-SNAPSHOT`即可。随后maven会输出`groupId`、`artifactId`、`version`、`package`这些基本信息，直接输入`Y`确认即可。最后可以看到绿色的`BUILD SUCCESS`项目创建成功的提示。
@@ -263,14 +263,40 @@ import java.util.List;
 import com.shiyanlou.lesson7.domain.Food;
 
 public interface FoodMapper {
+   	
+  	/**
+	 * 创建食物
+	 * @param food
+	 * @return
+	 */
 	int insert(Food food);
 	
+   	/**
+	 * 查询食物
+	 * @param id
+	 * @return
+	 */
 	Food getById(int id);
 	
+   	/**
+	 * 查询所有食物
+	 * @param
+	 * @return
+	 */
 	List<Food> getAll();
-		
+	
+   	/**
+	 * 更新食物
+	 * @param food
+	 * @return
+	 */
 	int update(Food food);
 	
+   	/**
+	 * 删除食物
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);
 }
 ```
@@ -287,14 +313,40 @@ import java.util.List;
 import com.shiyanlou.lesson7.domain.Sport;
 
 public interface SportMapper {
-	int insert(Sport drug);
+ 	 
+  	/**
+	 * 创建运动
+	 * @param sport
+	 * @return
+	 */
+	int insert(Sport sport);
 	
+  	/**
+	 * 查询运动
+	 * @param id
+	 * @return
+	 */
 	Sport getById(int id);
 	
+  	/**
+	 * 查询所有运动
+	 * @param
+	 * @return
+	 */
 	List<Sport> getAll();
 	
-	int update(Sport drug);
+  	/**
+	 * 更新运动
+	 * @param sport
+	 * @return
+	 */
+	int update(Sport sport);
 	
+  	/**
+	 * 删除运动
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);
 }
 ```
@@ -623,19 +675,18 @@ public interface UserIndexMapper {
 
 #### 2.7 创建domain目录及文件
 
-`ResultObject`三个属性分别是
-
-- `code`：后台状态
-- `msg`：相关消息
-- `result`：结果
+`ResultObject ` 封装后端返回结果 
 
 ```java
 package com.shiyanlou.lesson6.domain;
 
 public class ResultObject {
 
+  	// 后台状态
 	private int code;
+  	// 返回消息
 	private String msg;
+  	// 结果
 	private Object result;
 	public ResultObject() {
 		super();
@@ -647,6 +698,8 @@ public class ResultObject {
 		this.msg = msg;
 		this.result = result;
 	}
+  
+  	// 属性setter、getter方法
 	public int getCode() {
 		return code;
 	}
@@ -665,6 +718,8 @@ public class ResultObject {
 	public void setResult(Object result) {
 		this.result = result;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "ResultObject [code=" + code + ", msg=" + msg + ", result=" + result + "]";
@@ -674,23 +729,20 @@ public class ResultObject {
 
 
 
-`PaginationObject.java`
-
-其中属性含义如下
-
-- `pageNum`：第几页
-- `pageSize`：每页记录个数
-- `total`：记录总数
-- `list`：结果
+`PaginationObject.java` 封装分页查询结果
 
 ```java
 package com.shiyanlou.lesson6.domain;
 
 public class PaginationObject {
-
+	
+  	// 结果
 	private Object list;
+  	// 第几页
 	private int pageNum;
+  	// 每页记录个数
 	private int pageSize;
+  	// 记录总数
 	private long total;
 	public PaginationObject() {
 		super();
@@ -703,6 +755,8 @@ public class PaginationObject {
 		this.pageSize = pageSize;
 		this.total = total;
 	}
+  
+  	// 属性setter、getter方法
 	public Object getList() {
 		return list;
 	}
@@ -727,17 +781,18 @@ public class PaginationObject {
 	public void setTotal(long total) {
 		this.total = total;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "PaginationObject [list=" + list + ", pageNum=" + pageNum + ", pageSize=" + pageSize + ", total=" + total
-				+ "]";
+		return "PaginationObject [list=" + list + ", pageNum=" + pageNum + ", pageSize=" + pageSize + ", total=" + total + "]";
 	}
 }
 ```
 
 
 
-`EnergyDate.java`
+`EnergyDate.java` 表示某日用户消耗、摄入能量情况
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -771,6 +826,8 @@ public class EnergyDate {
 	public void setCollectDate(Date collectDate) {
 		this.collectDate = collectDate;
 	}
+  	
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "EnergyDate [energy=" + energy + ", collectDate=" + collectDate + "]";
@@ -780,7 +837,7 @@ public class EnergyDate {
 
 
 
-`Food.java`
+`Food.java` 食物类，描述食物信息
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -791,14 +848,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_DEFAULT)
 public class Food {
 
+    // 主键自增id
 	private int id;
-  	// 主键自增id
+  	// 食物名称
 	private String name;
-    // 食物名称
-	private String description;
     // 食物描述
+	private String description;
+    // 食物每500g所含能量
 	private int foodEnergy;
-	// 食物每500g所含能量
   
 	public Food() {
 		super();
@@ -820,6 +877,7 @@ public class Food {
 		this.id = id;
 	}
 
+  	// 属性setter、getter方法
 	public String getName() {
 		return name;
 	}
@@ -844,17 +902,17 @@ public class Food {
 		this.foodEnergy = foodEnergy;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "Food [id=" + id + ", name=" + name + ", description=" + description + ", foodEnergy=" + foodEnergy
-				+ "]";
+		return "Food [id=" + id + ", name=" + name + ", description=" + description + ", foodEnergy=" + foodEnergy + "]";
 	}	
 }
 ```
 
 
 
-`Sport.java`
+`Sport.java` 运动类，描述运动信息
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -864,15 +922,16 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_DEFAULT)
 public class Sport {
-
-	private int id;
+  
   	// 主键自增id
-	private String name;
+	private int id;
   	// 运动名称
+	private String name;
+  	// 运动描述  
 	private String description;
-  	// 运动描述
-	private int consumeEnergy;
 	// 运动每小时所消耗能量
+	private int consumeEnergy;
+	
 	public Sport() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -885,6 +944,7 @@ public class Sport {
 		this.consumeEnergy = consumeEnergy;
 	}
 
+    // 属性setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -917,17 +977,17 @@ public class Sport {
 		this.consumeEnergy = consumeEnergy;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "Sport [id=" + id + ", name=" + name + ", description=" + description + ", consumeEnergy="
-				+ consumeEnergy + "]";
+		return "Sport [id=" + id + ", name=" + name + ", description=" + description + ", consumeEnergy=" + consumeEnergy + "]";
 	}	
 }
 ```
 
 
 
-`UserFoodHistory.java`
+`UserFoodHistory.java` 记录用户饮食历史
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -940,17 +1000,17 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_DEFAULT)
 public class UserFoodHistory {
-
-	private int id;
   	// 主键自增id
-	private int userId;
+	private int id;
   	// 用户id
-	private Food food;
+	private int userId;
   	// 食物详情
-	private int foodQuantity;
+	private Food food;
   	// 该食物摄入量，单位g
+	private int foodQuantity;
+  	// 摄入饮食日期
 	private Date collectDate;
-	// 饮食日期
+	
 	public UserFoodHistory() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -964,6 +1024,7 @@ public class UserFoodHistory {
 		this.collectDate = collectDate;
 	}
 
+    // 属性setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -1004,17 +1065,17 @@ public class UserFoodHistory {
 		this.collectDate = collectDate;
 	}
 
+  	// 重写toString
 	@Override
 	public String toString() {
-		return "UserFoodHistory [id=" + id + ", userId=" + userId + ", food=" + food + ", foodQuantity=" + foodQuantity
-				+ ", collectDate=" + collectDate + "]";
+		return "UserFoodHistory [id=" + id + ", userId=" + userId + ", food=" + food + ", foodQuantity=" + foodQuantity + ", collectDate=" + collectDate + "]";
 	}
 }
 ```
 
 
 
-`UserSportHistory.java`
+`UserSportHistory.java` 记录用户运动历史
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -1028,16 +1089,17 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_DEFAULT)
 public class UserSportHistory {
 	
+    // 主键自增id
 	private int id;
-  	// 主键自增id
-	private int userId;
   	// 用户id
-	private Sport sport;
+	private int userId;
   	// 运动详情
-	private int sportTime;
+	private Sport sport;
   	// 运动时间，单位h
+	private int sportTime;
+  	// 运动日期
 	private Date collectDate;
-	// 运动日期
+	
 	public UserSportHistory() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -1051,6 +1113,7 @@ public class UserSportHistory {
 		this.collectDate = collectDate;
 	}
 
+  	// 属性的setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -1091,17 +1154,17 @@ public class UserSportHistory {
 		this.collectDate = collectDate;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "UserSportHistory [id=" + id + ", userId=" + userId + ", sport=" + sport + ", sportTime=" + sportTime
-				+ ", collectDate=" + collectDate + "]";
+		return "UserSportHistory [id=" + id + ", userId=" + userId + ", sport=" + sport + ", sportTime=" + sportTime + ", collectDate=" + collectDate + "]";
 	}
 }
 ```
 
 
 
-`UserEverydayFoodSituation.java`
+`UserEverydayFoodSituation.java` 表示用户某日摄入能量情况
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -1110,15 +1173,15 @@ import java.sql.Date;
 import java.util.List;
 
 public class UserEverydayFoodSituation {
-
-	private int userId;
+  	
   	// 用户id
+	private int userId;
+    // 饮食日期
 	private Date collectDate;
-  	// 饮食日期
-	private int sumFoodEnergy;
   	// 该日摄入总能量
+	private int sumFoodEnergy;
+  	// 该日摄入食物详情
 	private List<UserFoodHistory> userFoodHistories;
-	// 该日摄入食物详情
   
 	public UserEverydayFoodSituation() {
 		super();
@@ -1134,6 +1197,7 @@ public class UserEverydayFoodSituation {
 		this.userFoodHistories = userFoodHistories;
 	}
 
+    // 属性setter、getter方法
 	public int getUserId() {
 		return userId;
 	}
@@ -1166,17 +1230,17 @@ public class UserEverydayFoodSituation {
 		this.userFoodHistories = userFoodHistories;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "UserEverydayFoodSituation [userId=" + userId + ", collectDate=" + collectDate + ", sumFoodEnergy="
-				+ sumFoodEnergy + ", userFoodHistories=" + userFoodHistories + "]";
+		return "UserEverydayFoodSituation [userId=" + userId + ", collectDate=" + collectDate + ", sumFoodEnergy=" + sumFoodEnergy + ", userFoodHistories=" + userFoodHistories + "]";
 	}
 }
 ```
 
 
 
-`UserEverydaySportSituation.java`
+`UserEverydaySportSituation.java` 表示用户某日消耗能量情况
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -1185,15 +1249,15 @@ import java.sql.Date;
 import java.util.List;
 
 public class UserEverydaySportSituation {
-
-	private int userId;
+  
   	// 用户id
-	private Date collectDate;
+	private int userId;
   	// 用户运动日期
+	private Date collectDate;
+    // 该日总消耗能量
 	private int sumConsumeEnergy;
-  	// 该日总消耗能量
+	// 该日用户各项运动详情
 	private List<UserSportHistory> userSportHistories;
-  	// 该日用户各项运动详情
 	
 	public UserEverydaySportSituation() {
 		super();
@@ -1209,6 +1273,7 @@ public class UserEverydaySportSituation {
 		this.userSportHistories = userSportHistories;
 	}
 
+  	// 属性setter、getter方法
 	public int getUserId() {
 		return userId;
 	}
@@ -1241,17 +1306,17 @@ public class UserEverydaySportSituation {
 		this.userSportHistories = userSportHistories;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "UserEverydaySportSituation [userId=" + userId + ", collectDate=" + collectDate + ", sumConsumeEnergy="
-				+ sumConsumeEnergy + ", userSportHistories=" + userSportHistories + "]";
+		return "UserEverydaySportSituation [userId=" + userId + ", collectDate=" + collectDate + ", sumConsumeEnergy=" + sumConsumeEnergy + ", userSportHistories=" + userSportHistories + "]";
 	}
 }
 ```
 
 
 
-`UserRelationship.java`
+`UserRelationship.java` 表示用户每日摄入能量、消耗能量、生理指标关系
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -1260,15 +1325,16 @@ import java.util.List;
 import java.util.Map;
 
 public class UserRelationship {
-
-	private int userId;
+	
   	// 用户id
-	private List<EnergyDate> foodEnergies;
+	private int userId;
   	// 用户每日饮食摄入能量
-	private List<EnergyDate> sportEnergies;
+	private List<EnergyDate> foodEnergies;
   	// 用户每日运动消耗能量
-	private Map<Integer, List<UserIndex>> userIndexs;
+	private List<EnergyDate> sportEnergies;
   	// 用户每日各项生理指标的情况
+	private Map<Integer, List<UserIndex>> userIndexs;
+  
 	public UserRelationship() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -1281,6 +1347,8 @@ public class UserRelationship {
 		this.sportEnergies = sportEnergies;
 		this.userIndexs = userIndexs;
 	}
+  
+  	// 属性setter、getter方法
 	public int getUserId() {
 		return userId;
 	}
@@ -1305,25 +1373,18 @@ public class UserRelationship {
 	public void setUserIndexs(Map<Integer, List<UserIndex>> userIndexs) {
 		this.userIndexs = userIndexs;
 	}
+  	
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "UserRelationship [userId=" + userId + ", foodEnergies=" + foodEnergies + ", sportEnergies="
-				+ sportEnergies + ", userIndexs=" + userIndexs + "]";
+		return "UserRelationship [userId=" + userId + ", foodEnergies=" + foodEnergies + ", sportEnergies=" + sportEnergies + ", userIndexs=" + userIndexs + "]";
 	}
 }
 ```
 
 
 
-`UserIndex.java`
-
-其中属性含义如下：
-
-- `id`：自增`id`在`delete`和`update`时会使用
-- `userId`：用户id
-- `indexType`：生理指标类型，包括（体重、血压、血糖、血脂、心率等）
-- `indexConent`：生理指标值
-- `collectDate`：用户上传日期
+`UserIndex.java` 用户生理指标类
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -1335,13 +1396,23 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class UserIndex {
 
+  	// 自增id在delete和update时会使用
 	private int id;
+  
+  	// 用户id
 	@JsonInclude(Include.NON_DEFAULT)
 	private int userId;
+  
+  	// 生理指标类型，包括（体重、血压、血糖、血脂、心率等）
 	@JsonInclude(Include.NON_DEFAULT)
 	private int indexType;
+  
+  	// 生理指标值
 	private int indexContent;
+  
+  	// 用户上传日期
 	private Date collectDate;
+  
 	public UserIndex() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -1353,6 +1424,8 @@ public class UserIndex {
 		this.indexContent = indexContent;
 		this.collectDate = collectDate;
 	}
+  
+    // 属性setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -1383,10 +1456,11 @@ public class UserIndex {
 	public void setCollectDate(Date collectDate) {
 		this.collectDate = collectDate;
 	}
+  	
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "UserIndex [id=" + id + ", userId=" + userId + ", indexType=" + indexType + ", indexContent="
-				+ indexContent + ", collectDate=" + collectDate + "]";
+		return "UserIndex [id=" + id + ", userId=" + userId + ", indexType=" + indexType + ", indexContent=" + indexContent + ", collectDate=" + collectDate + "]";
 	}
 }
 ```
@@ -1405,14 +1479,39 @@ import com.shiyanlou.lesson7.domain.PaginationObject;
 
 public interface FoodService {
 	
+  	/**
+	 * 查询食物
+	 * @param id
+	 * @return
+	 */
 	public Food getFoodById(int id);
 	
+  	/**
+	 * 创建食物
+	 * @param food
+	 * @return
+	 */
 	public int insertFood(Food food);
 	
+  	/**
+	 * 分页查询所有食物
+	 * @param pageNum 第几页, pageSize 每页多少个
+	 * @return
+	 */
 	public PaginationObject getAllFood(int pageNum, int pageSize);
 	
+  	/**
+	 * 更新食物
+	 * @param food
+	 * @return
+	 */
 	public int updateFood(Food food); 
 	
+  	/**
+	 * 删除食物
+	 * @param id
+	 * @return
+	 */
 	public int deleteFood(int id);
 }
 ```
@@ -1429,14 +1528,39 @@ import com.shiyanlou.lesson7.domain.Sport;
 
 public interface SportService {
 	
+  	/**
+	 * 查询运动
+	 * @param id
+	 * @return
+	 */
 	public Sport getSportById(int id);
 	
+    /**
+	 * 创建运动
+	 * @param sport
+	 * @return
+	 */
 	public int insertSport(Sport sport);
-	
+	  
+  	/**
+	 * 分页查询运动
+	 * @param pageNum 第几页, pageSize 每页多少个
+	 * @return
+	 */
 	public PaginationObject getAllSport(int pageNum, int pageSize);
 	
+    /**
+	 * 更新运动
+	 * @param sport
+	 * @return
+	 */
 	public int updateSport(Sport sport); 
 	
+    /**
+	 * 删除运动
+	 * @param id
+	 * @return
+	 */
 	public int deleteSport(int id);
 }
 ```
@@ -1456,8 +1580,18 @@ import com.shiyanlou.lesson7.domain.UserFoodHistory;
 
 public interface UserFoodHistoryService {
 
+    /**
+	 * 创建用户饮食记录
+	 * @param userFoodHistory
+	 * @return
+	 */
 	public int insertUserFoodHistory(UserFoodHistory userFoodHistory);
 	
+      /**
+	 * 查询用户所有饮食记录
+	 * @param userId
+	 * @return
+	 */
 	public List<UserEverydayFoodSituation> getAllUserFoodHistory(int userId);
 }
 ```
@@ -1472,6 +1606,12 @@ package com.shiyanlou.lesson7.service;
 import com.shiyanlou.lesson7.domain.UserRelationship;
 
 public interface UserRelationshipService {
+  	    
+  	/**
+	 * 查询用户饮食、运动、生理指标关系
+	 * @param userId
+	 * @return
+	 */
 	public UserRelationship getRelationship(int userId);
 }
 ```
@@ -1490,8 +1630,18 @@ import com.shiyanlou.lesson7.domain.UserSportHistory;
 
 public interface UserSportHistoryService {
 
+    /**
+	 * 创建用户运动记录
+	 * @param userSportHistory
+	 * @return
+	 */
 	public int insertUserSportHistory(UserSportHistory userSportHistory);
 	
+    /**
+	 * 查询用户所有运动记录
+	 * @param userId
+	 * @return
+	 */
 	public List<UserEverydaySportSituation> getAllUserSportHistory(int userId);
 }
 ```
@@ -1517,22 +1667,39 @@ import com.shiyanlou.lesson7.domain.PaginationObject;
 import com.shiyanlou.lesson7.mapper.FoodMapper;
 import com.shiyanlou.lesson7.service.FoodService;
 
+// 标识service
 @Service
 public class FoodServiceImpl implements FoodService{
 
+  	// 自动注入mapper
 	@Autowired
 	private FoodMapper foodMapper;
 	
+    /**
+	 * 查询食物
+	 * @param id
+	 * @return
+	 */
 	public Food getFoodById(int id) {
 		Food food = foodMapper.getById(id);
 		return food;
 	}
 	
+ 	 /**
+	 * 创建食物
+	 * @param food
+	 * @return
+	 */
 	public int insertFood(Food food) {
 		int modifyId = foodMapper.insert(food);
 		return modifyId;
 	}
 	
+   /**
+	 * 分页查询食物
+	 * @param pageNum, pageSize
+	 * @return
+	 */
 	public PaginationObject getAllFood(int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		List<Food> foods = foodMapper.getAll();
@@ -1541,12 +1708,22 @@ public class FoodServiceImpl implements FoodService{
 		PaginationObject paginationObject = new PaginationObject(foods, pageNum, pageSize, total);
 		return paginationObject;
 	}
-	
+		
+   /**
+	 * 更新食物
+	 * @param food
+	 * @return
+	 */
 	public int updateFood(Food food) {
 		int modifyId = foodMapper.update(food);
 		return modifyId;
 	} 
-	
+		
+   /**
+	 * 删除食物
+	 * @param id
+	 * @return
+	 */
 	public int deleteFood(int id) {
 		int modifyId = foodMapper.delete(id);
 		return modifyId;
@@ -1573,22 +1750,39 @@ import com.shiyanlou.lesson7.domain.Sport;
 import com.shiyanlou.lesson7.mapper.SportMapper;
 import com.shiyanlou.lesson7.service.SportService;
 
+// 标识service
 @Service
 public class SportServiceImpl implements SportService{
 
+    // 自动注入mapper
 	@Autowired
 	private SportMapper sportMapper;
 	
+    /**
+	 * 查询运动
+	 * @param id
+	 * @return
+	 */
 	public Sport getSportById(int id) {
 		Sport sport = sportMapper.getById(id);
 		return sport;
 	}
-	
+	  
+  	/**
+	 * 创建运动
+	 * @param sport
+	 * @return
+	 */
 	public int insertSport(Sport sport) {
 		int modifyId = sportMapper.insert(sport);
 		return modifyId;
 	}
-	
+  
+    /**
+	 * 分页查询运动
+	 * @param pageNum, pageSize
+	 * @return
+	 */
 	public PaginationObject getAllSport(int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		List<Sport> sports = sportMapper.getAll();
@@ -1597,11 +1791,21 @@ public class SportServiceImpl implements SportService{
 		PaginationObject paginationObject = new PaginationObject(sports, pageNum, pageSize, total);
 		return paginationObject;	}
 	
+    /**
+	 * 更新运动
+	 * @param sport
+	 * @return
+	 */
 	public int updateSport(Sport sport) {
 		int modifyId = sportMapper.update(sport);
 		return modifyId;
 	} 
 	
+    /**
+	 * 删除运动
+	 * @param id
+	 * @return
+	 */
 	public int deleteSport(int id) {
 		int modifyId = sportMapper.delete(id);
 		return modifyId;
@@ -1631,26 +1835,43 @@ import com.shiyanlou.lesson7.domain.UserFoodHistory;
 import com.shiyanlou.lesson7.mapper.UserFoodHistoryMapper;
 import com.shiyanlou.lesson7.service.UserFoodHistoryService;
 
+// 标识service
 @Service
 public class UserFoodHistoryServiceImpl implements UserFoodHistoryService{
-
+  
+  	// 自动注入mapper
 	@Autowired
 	private UserFoodHistoryMapper userFoodHistoryMapper;
-	
+  
+  	/**
+	 * 创建用户饮食记录
+	 * @param userFoodHistory
+	 * @return
+	 */
 	public int insertUserFoodHistory(UserFoodHistory userFoodHistory) {
 		int modifyId = userFoodHistoryMapper.insert(userFoodHistory);
 		return modifyId;
 	}
 	
+    /**
+	 * 查询用户所有饮食记录
+	 * @param userId
+	 * @return
+	 */
 	public List<UserEverydayFoodSituation> getAllUserFoodHistory(int userId) {
+      	// 获取用户所有饮食记录
 		List<UserFoodHistory> userFoodHistories = userFoodHistoryMapper.getAll(userId);
+      
+        // userFoodMap，key为日期，value为用户该日所有饮食记录
 		Map<Date, List<UserFoodHistory>> userFoodMap = new HashMap<>();
-      	// userFoodMap，key为日期，value为用户该日饮食情况
-		for(UserFoodHistory userFoodHistory: userFoodHistories) {
+		
+      	for(UserFoodHistory userFoodHistory: userFoodHistories) {
 			Date cDate = userFoodHistory.getCollectDate();
+          	// 如果当前日期已经存在于userFoodMap中，将这条饮食记录直接添加到list末尾
 			if (userFoodMap.containsKey(cDate)) {
 				List<UserFoodHistory> userFoodList = userFoodMap.get(cDate);
 				userFoodList.add(userFoodHistory);
+              // 如果userFoodMap中不存在当前日期，则新建list，并将这条饮食记录直接添加到list中
 			} else {
 				List<UserFoodHistory> userFoodList = new ArrayList<>();
 				userFoodList.add(userFoodHistory);
@@ -1658,6 +1879,7 @@ public class UserFoodHistoryServiceImpl implements UserFoodHistoryService{
 			}
 		}
 		
+      	// userEverydayFoodSituations中，一个元素代表用户一天的饮食情况和摄入能量情况
 		List<UserEverydayFoodSituation> userEverydayFoodSituations = new ArrayList<>();
 		
 		for(Entry<Date, List<UserFoodHistory>> entry: userFoodMap.entrySet()) {
@@ -1666,12 +1888,15 @@ public class UserFoodHistoryServiceImpl implements UserFoodHistoryService{
 			userEverydayFoodSituation.setCollectDate(entry.getKey());
 			userEverydayFoodSituation.setUserFoodHistories(entry.getValue());
 			
+          	// 某日摄入能量总和
 			int sumFoodEnergy = 0;
+          	
+          	// 统计食物能量总和
 			for(UserFoodHistory userFoodHistory: entry.getValue()) {
 				sumFoodEnergy += userFoodHistory.getFoodQuantity() * userFoodHistory.getFood().getFoodEnergy() / 500;
 			}
+          
 			userEverydayFoodSituation.setSumFoodEnergy(sumFoodEnergy);
-			
 			userEverydayFoodSituations.add(userEverydayFoodSituation);
 		}
 		
@@ -1704,29 +1929,35 @@ import com.shiyanlou.lesson7.mapper.UserSportHistoryMapper;
 
 import com.shiyanlou.lesson7.service.UserRelationshipService;
 
+// 标识service
 @Service
 public class UserRelationshipServiceImpl implements UserRelationshipService {
-	
+  	
+  	// 自动注入userFoodHistoryMapper	
 	@Autowired
 	private UserFoodHistoryMapper userFoodHistoryMapper;
 	
+  	// 自动注入userSportHistoryMapper
 	@Autowired
 	private UserSportHistoryMapper userSportHistoryMapper;
 	
+  	// 自动注入userIndexMapper
 	@Autowired
 	private UserIndexMapper userIndexMapper;
 	
 	public UserRelationship getRelationship(int userId) {
 		UserRelationship relationship = new UserRelationship();
       
+        // foodEnergies，用户每天摄入能量和日期
 		List<EnergyDate> foodEnergies = userFoodHistoryMapper.getSumFoodEnergy(userId);
-      	// foodEnergies，用户每天摄入能量和日期
+       	// sportEnergyDates，用户每天运动消耗能量和日期
 		List<EnergyDate> sportEnergyDates = userSportHistoryMapper.getSumConsumeEnergy(userId);			
-     	 // sportEnergyDates，用户每天运动消耗能量和日期
+      	// userIndexs，用户所有生理指标
 		List<UserIndex> userIndexs = userIndexMapper.getById(userId);
-      	// map，用户每天各种生理指标和日期
+      	// map，key：生理指标类型，value：用户该项生理指标历史情况
 		Map<Integer, List<UserIndex>> map = new HashMap<>();
 		
+      	// 根据生理指标类型分类
 		for(UserIndex userIndex: userIndexs) {
 			int indexType = userIndex.getIndexType();
 			if (map.containsKey(indexType)) {
@@ -1770,27 +2001,44 @@ import com.shiyanlou.lesson7.domain.UserSportHistory;
 import com.shiyanlou.lesson7.mapper.UserSportHistoryMapper;
 import com.shiyanlou.lesson7.service.UserSportHistoryService;
 
+// 标识service
 @Service
 public class UserSportHistoryServiceImpl implements UserSportHistoryService{
 
+   	// 自动注入mapper
 	@Autowired
 	private UserSportHistoryMapper userSportHistoryMapper;
 	
+  	/**
+	 * 创建用户运动记录
+	 * @param userFoodHistory
+	 * @return
+	 */
 	public int insertUserSportHistory(UserSportHistory userSportHistory) {
 		int modifyId = userSportHistoryMapper.insert(userSportHistory);
 		return modifyId;
 	}
 	
+  	/**
+	 * 查询用户运动记录
+	 * @param userId
+	 * @return
+	 */
 	public List<UserEverydaySportSituation> getAllUserSportHistory(int userId) {
 		List<UserSportHistory> userSportHistories = userSportHistoryMapper.getAll(userId);
-		Map<Date, List<UserSportHistory>> userSportMap = new HashMap<>();
+      
         // userSportMap，key为日期，value为用户该日运动情况
+		Map<Date, List<UserSportHistory>> userSportMap = new HashMap<>();
 
 		for(UserSportHistory userSportHistory: userSportHistories) {
 			Date cDate = userSportHistory.getCollectDate();
+             
+          	// 如果当前日期已经存在于userSportMap中，将这条运动记录直接添加到list末尾
 			if (userSportMap.containsKey(cDate)) {
 				List<UserSportHistory> userSportList = userSportMap.get(cDate);
 				userSportList.add(userSportHistory);
+            
+             // 如果userSportMap中不存在当前日期，则新建list，并将这条运动记录直接添加到list中
 			} else {
 				List<UserSportHistory> userSportList = new ArrayList<>();
 				userSportList.add(userSportHistory);
@@ -1798,6 +2046,7 @@ public class UserSportHistoryServiceImpl implements UserSportHistoryService{
 			}
 		}
 		
+        // userEverydaySportSituations，一个元素代表用户一天的运动情况和消耗能量情况
 		List<UserEverydaySportSituation> userEverydaySportSituations = new ArrayList<>();
 		
 		for(Entry<Date, List<UserSportHistory>> entry: userSportMap.entrySet()) {
@@ -1806,12 +2055,13 @@ public class UserSportHistoryServiceImpl implements UserSportHistoryService{
 			userEverydaySportSituation.setCollectDate(entry.getKey());
 			userEverydaySportSituation.setUserSportHistories(entry.getValue());
 			
+          	// 消耗能量总和
 			int sumConsumeEnergy = 0;
 			for(UserSportHistory userSportHistory: entry.getValue()) {
 				sumConsumeEnergy += userSportHistory.getSportTime() * userSportHistory.getSport().getConsumeEnergy();
 			}
+          	
 			userEverydaySportSituation.setSumConsumeEnergy(sumConsumeEnergy);
-			
 			userEverydaySportSituations.add(userEverydaySportSituation);
 		}
 		
@@ -1849,13 +2099,20 @@ import com.shiyanlou.lesson7.domain.PaginationObject;
 import com.shiyanlou.lesson7.domain.ResultObject;
 import com.shiyanlou.lesson7.service.FoodService;
 
+// 标识controller，返回json数据，URL前缀/api/v1/food
 @RestController
 @RequestMapping("api/v1/food")
 public class FoodController {
 
+  	// 自动注入service
 	@Autowired
 	private FoodService foodService;
 	
+  	 /**
+	 * 查询食物
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("get")
 	public ResultObject getFoodById(@RequestParam int id) {
 		Food food = foodService.getFoodById(id);
@@ -1863,6 +2120,11 @@ public class FoodController {
 		return resultObject;
 	}
 	
+    /**
+	 * 新建食物
+	 * @param food
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject insertFood(@RequestBody Food food) {
 		int modifyId = foodService.insertFood(food);
@@ -1872,6 +2134,11 @@ public class FoodController {
 		return resultObject;
 	}
 	
+    /**
+	 * 分页查询食物
+	 * @param pageNum, pageSize
+	 * @return
+	 */
 	@GetMapping("list")
 	public ResultObject getAllFood(@RequestParam int pageNum, @RequestParam int pageSize) {
 		PaginationObject paginationObj = foodService.getAllFood(pageNum, pageSize);
@@ -1880,8 +2147,13 @@ public class FoodController {
 		return resultObject;
 	}
 	
+    /**
+	 * 删除食物
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete")
-	public ResultObject deleteUser(@RequestParam int id) {
+	public ResultObject deleteFood(@RequestParam int id) {
 		int modifyId = foodService.deleteFood(id);
 		Map<String, Integer> map = new HashMap<>();
 		map.put("modifyId", modifyId);
@@ -1889,8 +2161,13 @@ public class FoodController {
 		return resultObject;
 	}
 	
+    /**
+	 * 更新食物
+	 * @param food
+	 * @return
+	 */
 	@PutMapping("edit")
-	public ResultObject updateUser(@RequestBody Food food) {
+	public ResultObject updateFood(@RequestBody Food food) {
 		int modifyId = foodService.updateFood(food);
 		Map<String, Integer> map = new HashMap<>();
 		map.put("modifyId", modifyId);
@@ -1925,13 +2202,20 @@ import com.shiyanlou.lesson7.domain.ResultObject;
 import com.shiyanlou.lesson7.domain.Sport;
 import com.shiyanlou.lesson7.service.SportService;
 
+// 标识controller，返回json数据，URL前缀/api/v1/sport
 @RestController
 @RequestMapping("api/v1/sport")
 public class SportController {
-
+	
+  	// 自动注入service
 	@Autowired
 	private SportService sportService;
 	
+    /**
+	 * 查询运动
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("get")
 	public ResultObject getSportById(@RequestParam int id) {
 		Sport sport = sportService.getSportById(id);
@@ -1939,6 +2223,11 @@ public class SportController {
 		return resultObject;
 	}
 	
+    /**
+	 * 新建运动
+	 * @param sport
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject insertSport(@RequestBody Sport sport) {
 		int modifyId = sportService.insertSport(sport);
@@ -1948,6 +2237,11 @@ public class SportController {
 		return resultObject;
 	}
 	
+    /**
+	 * 分页查询运动
+	 * @param pageNum, pageSize
+	 * @return
+	 */
 	@GetMapping("list")
 	public ResultObject getAllSport(@RequestParam int pageNum, @RequestParam int pageSize) {
 		PaginationObject paginationObject = sportService.getAllSport(pageNum, pageSize);
@@ -1955,6 +2249,11 @@ public class SportController {
 		return resultObject;
 	}
 	
+    /**
+	 * 删除运动
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete")
 	public ResultObject deleteSport(@RequestParam int id) {
 		int modifyId = sportService.deleteSport(id);
@@ -1964,6 +2263,11 @@ public class SportController {
 		return resultObject;
 	}
 	
+    /**
+	 * 更新运动
+	 * @param sport
+	 * @return
+	 */
 	@PutMapping("edit")
 	public ResultObject updateSport(@RequestBody Sport sport) {
 		int modifyId = sportService.updateSport(sport);
@@ -1999,13 +2303,20 @@ import com.shiyanlou.lesson7.domain.UserEverydayFoodSituation;
 import com.shiyanlou.lesson7.domain.UserFoodHistory;
 import com.shiyanlou.lesson7.service.UserFoodHistoryService;
 
+// 标识controller，返回json数据，URL前缀/api/v1/user_food_history
 @RestController
 @RequestMapping("/api/v1/user_food_history")
 public class UserFoodHistoryController {
 
+  	// 自动注入service
 	@Autowired
 	private UserFoodHistoryService userFoodHistoryService;
 	
+    /**
+	 * 新建用户饮食记录
+	 * @param userFoodHistory
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject insertUserFoodHistory(@RequestBody UserFoodHistory userFoodHistory) {
 		int modifyId = userFoodHistoryService.insertUserFoodHistory(userFoodHistory);
@@ -2024,6 +2335,11 @@ public class UserFoodHistoryController {
 		return resultObject;
 	}
 	
+    /**
+	 * 查询用户所有运动历史记录
+	 * @param userId
+	 * @return
+	 */
 	@GetMapping("get")
 	public ResultObject getAllUserFoodHistory(@RequestParam int userId) {
 		List<UserEverydayFoodSituation> userEverydayFoodSituations = userFoodHistoryService.getAllUserFoodHistory(userId);
@@ -2049,13 +2365,20 @@ import com.shiyanlou.lesson7.domain.ResultObject;
 import com.shiyanlou.lesson7.domain.UserRelationship;
 import com.shiyanlou.lesson7.service.UserRelationshipService;
 
+// 标识controller，返回json数据，URL前缀/api/v1/relationship
 @RestController
 @RequestMapping("api/v1/relationship")
 public class UserRelationshipController {
 
+ 	// 自动注入service
 	@Autowired
 	private UserRelationshipService relationshipService;
 	
+    /**
+	 * 查询用户饮食、运动、生理指标关系
+	 * @param userId
+	 * @return
+	 */
 	@RequestMapping("get")
 	public ResultObject getRelationship(@RequestParam int userId) {
 		UserRelationship relationship = relationshipService.getRelationship(userId);
@@ -2090,13 +2413,20 @@ import com.shiyanlou.lesson7.domain.UserEverydaySportSituation;
 import com.shiyanlou.lesson7.domain.UserSportHistory;
 import com.shiyanlou.lesson7.service.UserSportHistoryService;
 
+// 标识controller，返回json数据，URL前缀/api/v1/user_sport_history
 @RestController
 @RequestMapping("/api/v1/user_sport_history")
 public class UserSportHistoryController {
 
+ 	// 自动注入service
 	@Autowired
 	private UserSportHistoryService userSportHistoryService;
 	
+    /**
+	 * 新建用户饮食记录
+	 * @param userSportHistory
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject insertUserSportHistory(@RequestBody UserSportHistory userSportHistory) {
 		int modifyId = userSportHistoryService.insertUserSportHistory(userSportHistory);
@@ -2104,6 +2434,8 @@ public class UserSportHistoryController {
 		map.put("modifyId", modifyId);
 		ResultObject resultObject = new ResultObject();
 		resultObject.setResult(map);
+      	
+      	// 通过modifyid判断是否执行成功
 		if (modifyId == 1) {
 			resultObject.setCode(1);
 			resultObject.setMsg("success");
@@ -2115,8 +2447,13 @@ public class UserSportHistoryController {
 		return resultObject;
 	}
 	
+   	/**
+	 * 查询用户饮食历史
+	 * @param userId
+	 * @return
+	 */
 	@GetMapping("get")
-	public ResultObject getAllUserDrugHistory(@RequestParam int userId) {
+	public ResultObject getAllUserSportHistory(@RequestParam int userId) {
 		List<UserEverydaySportSituation> userEverydaySportSituations = userSportHistoryService.getAllUserSportHistory(userId);
 		ResultObject resultObject = new ResultObject(200, "success", userEverydaySportSituations);
 
@@ -2139,6 +2476,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// springboot入口
 @SpringBootApplication
 @MapperScan("com.shiyanlou.lesson7.mapper")
 

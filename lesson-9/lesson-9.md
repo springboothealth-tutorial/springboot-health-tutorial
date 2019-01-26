@@ -282,6 +282,12 @@ import com.shiyanlou.lesson9.domain.User;
 
 @Mapper
 public interface UserMapper {
+  
+  	/**
+	 * 查询用户
+	 * @param user
+	 * @return
+	 */
 	User select(User user);
 }
 ```
@@ -291,30 +297,34 @@ public interface UserMapper {
 
 #### 2.8 创建domain目录及文件
 
-`ResultObject.java`
+`ResultObject.java` 封装后端返回数据
 
 ```java
 package com.shiyanlou.lesson6.domain;
 
 public class ResultObject {
 	
-  // 后台状态
+  	// 后台状态
 	private int code;
   	// 相关消息
 	private String msg;
   	// 后台返回数据
 	private Object result;
   	
+  	// 构造函数
 	public ResultObject() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+  	// 构造函数
 	public ResultObject(int code, String msg, Object result) {
 		super();
 		this.code = code;
 		this.msg = msg;
 		this.result = result;
 	}
+  
+  	// 属性setter、getter方法
 	public int getCode() {
 		return code;
 	}
@@ -333,6 +343,8 @@ public class ResultObject {
 	public void setResult(Object result) {
 		this.result = result;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "ResultObject [code=" + code + ", msg=" + msg + ", result=" + result + "]";
@@ -342,7 +354,7 @@ public class ResultObject {
 
 
 
-`User.java`
+`User.java` 用户类
 
 ```java
 package com.shiyanlou.lesson9.domain;
@@ -367,11 +379,12 @@ public class User implements Serializable{
   	// 密码
 	private String password;
 	
+  	// 构造函数
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	// 构造函数
 	public User(String name, int gender, int age, String password) {
 		super();
 		this.name = name;
@@ -380,6 +393,7 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
+  	// 属性setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -420,10 +434,10 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", password=" + password
-				+ "]";
+		return "User [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", password=" + password + "]";
 	}
 }
 ```
@@ -441,9 +455,19 @@ import com.shiyanlou.lesson9.domain.ResultObject;
 import com.shiyanlou.lesson9.domain.User;
 
 public interface UserService {
-  	// 登录
+
+  	/**
+	 * 登录
+	 * @param user
+	 * @return
+	 */
 	public ResultObject login(User user);
-  	// 注销
+
+  	/**
+	 * 注销
+	 * @param token
+	 * @return
+	 */
 	public ResultObject logout(String token);
 }
 ```
@@ -470,26 +494,37 @@ import com.shiyanlou.lesson9.domain.User;
 import com.shiyanlou.lesson9.service.UserService;
 import com.shiyanlou.lesson9.util.RedisUtil;
 
-
+// 标识service
 @Service
 public class UserServiceImpl implements UserService{
 
+  	// 自动注入mapper
 	@Autowired
 	private UserMapper userMapper;
 
+  	// 自动注入redisUtil
 	@Autowired
 	private RedisUtil redisUtil;
 	
+   	/**
+	 * 登录
+	 * @param user
+	 * @return
+	 */
 	@Override
 	public ResultObject login(User user) {
 		ResultObject resultObject = new ResultObject();
+      
+      	// 查询用户账号、密码是否正确
 		User fullUser = userMapper.select(user);
+      	// 不正确直接返回
 		if (fullUser == null) {
 			resultObject.setCode(-1);
 			resultObject.setMsg("name or password error");
 			return resultObject;
 		}
 		
+      	// 生成随机token
 		String token = UUID.randomUUID().toString();
 		int interval = 60 * 5;
       	
@@ -510,6 +545,11 @@ public class UserServiceImpl implements UserService{
 		return resultObject;
 	}
 
+  	 /**
+	 * 注销
+	 * @param token
+	 * @return
+	 */
 	@Override
 	public ResultObject logout(String token) {
 		User user = (User)redisUtil.get(token);
@@ -542,14 +582,20 @@ import com.shiyanlou.lesson9.domain.ResultObject;
 import com.shiyanlou.lesson9.domain.User;
 import com.shiyanlou.lesson9.service.UserService;
 
-
+// 标记controller，返回json数据，URL前缀：/user
 @RestController
 @RequestMapping("user")
 public class UserController {
 	
+  	// 自动注入service
 	@Autowired
 	private UserService userService;
-	
+  
+    /**
+	 * 登录
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("login")
 	public ResultObject login(@RequestBody User user) {
 		if (user == null) {
@@ -559,14 +605,22 @@ public class UserController {
 		return resultObject;
 	}
 	
-	// 测试单点登录
+  	 /**
+	 * 测试单点登录
+	 * @param
+	 * @return
+	 */
 	@GetMapping("test")
 	public ResultObject test() {
 		ResultObject resultObject = new ResultObject(1, "test success", null);
 		return resultObject;
 	}
 	
-	
+	 /**
+	 * 注销
+	 * @param token
+	 * @return
+	 */
 	@GetMapping("logout")
 	public ResultObject logout(@RequestParam String token) {
 		ResultObject resultObject = userService.logout(token);
@@ -622,6 +676,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+// 标识configuration
 @Configuration
 public class RedisConfig {
 
@@ -653,7 +708,6 @@ public class RedisConfig {
 	}
 
 }
-
 ```
 
 
@@ -670,21 +724,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 import com.shiyanlou.lesson9.interceptor.LoginInterceptor;
 
+// 标识configuration
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport{
 
+  	// 自动注入拦截器
 	@Autowired
 	private LoginInterceptor loginInterceptor;
 	
 	@Override
     public void addInterceptors(InterceptorRegistry registry) {
-
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/user/**").excludePathPatterns("/user/login");
+			registry.addInterceptor(loginInterceptor).addPathPatterns("/user/**").excludePathPatterns("/user/login");
 
         super.addInterceptors(registry);
     }
 }
-
 ```
 
 
@@ -784,7 +838,6 @@ public class LoginInterceptor  implements HandlerInterceptor{
         out.close();
 	}
 }
-
 ```
 
 

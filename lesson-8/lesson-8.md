@@ -53,7 +53,7 @@ $ mvn archetype:generate -DgroupId=com.shiyanlou -DartifactId=lesson8 -Darchetyp
 
 输入命令后，maven开始创建项目、下载所需的依赖，等待片刻，maven提示我们输入版本号，直接回车，我们使用默认版本号`1.0-SNAPSHOT`即可。随后maven会输出`groupId`、`artifactId`、`version`、`package`这些基本信息，直接输入`Y`确认即可。最后可以看到绿色的`BUILD SUCCESS`项目创建成功的提示。
 
-然后在web IDE界面中，选择File -> Open Workspace切换工作空间，选择lesson5目录，必须切换到该目录下，否则识别不了项目。
+然后在web IDE界面中，选择File -> Open Workspace切换工作空间，选择lesson8目录，必须切换到该目录下，否则识别不了项目。
 
 最后大家可以根据上图所示的目录结构，自己创建目录、文件，较为简单，无需赘述。
 
@@ -212,8 +212,18 @@ import com.shiyanlou.lesson8.domain.Account;
 @Mapper
 public interface AccountMapper {
 
+  	/**
+	 * 查询账户
+	 * @param userId
+	 * @return
+	 */
 	int select(int userId);
 		
+  	/**
+	 * 更新账户
+	 * @param account
+	 * @return
+	 */
 	int update(Account account);	
 }
 ```
@@ -233,14 +243,33 @@ import com.shiyanlou.lesson8.domain.Doctor;
 @Mapper
 public interface DoctorMapper {
 
+  	 /**
+	 * 查询健康管理员
+	 * @param id
+	 * @return
+	 */
 	Doctor select(int id);
 	
+	 /**
+	 * 新建健康管理员
+	 * @param doctor
+	 * @return
+	 */
 	int insert(Doctor doctor);
 	
-	int update(Doctor doctor);
-	
+  	 /**
+	 * 更新健康管理员
+	 * @param doctor
+	 * @return
+	 */
+  	int update(Doctor doctor);
+
+  	 /**
+	 * 删除健康管理员
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);
-	
 }
 ```
 
@@ -258,12 +287,32 @@ import com.shiyanlou.lesson8.domain.User;
 @Mapper
 public interface UserMapper {
 
+  	 /**
+	 * 查询用户
+	 * @param id
+	 * @return
+	 */
 	User select(int id);
 	
+  	 /**
+	 * 新建用户
+	 * @param user
+	 * @return
+	 */
 	int insert(User user);
 		
+  	 /**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
 	int update(User user);
 	
+  	 /**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	int delete(int id);
 }
 ```
@@ -273,30 +322,35 @@ public interface UserMapper {
 
 #### 2.7 创建domain目录及文件
 
-`ResultObject`三个属性分别是
-
-- `code`：后台状态
-- `msg`：相关消息
-- `result`：结果
+`ResultObject` 封装后端返回数据
 
 ```java
 package com.shiyanlou.lesson6.domain;
 
 public class ResultObject {
 
+  	// 后台状态
 	private int code;
+  	// 相关消息
 	private String msg;
+  	// 结果
 	private Object result;
+  
+  	// 构造函数
 	public ResultObject() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+  
+   	// 构造函数
 	public ResultObject(int code, String msg, Object result) {
 		super();
 		this.code = code;
 		this.msg = msg;
 		this.result = result;
 	}
+  
+  	// 属性setter、getter方法
 	public int getCode() {
 		return code;
 	}
@@ -315,6 +369,8 @@ public class ResultObject {
 	public void setResult(Object result) {
 		this.result = result;
 	}
+  
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "ResultObject [code=" + code + ", msg=" + msg + ", result=" + result + "]";
@@ -324,30 +380,33 @@ public class ResultObject {
 
 
 
-`Account.java`
+`Account.java` 账号类
 
 ```java
 package com.shiyanlou.lesson8.domain;
 
 public class Account {
-
-	private int id;
+  	
   	// 主键id
-	private int userId;
+	private int id;
   	// 用户id
+	private int userId;
+  	// 账户余额
 	private int balance;
-	// 账户余额
-  
+	
+  	// 构造函数
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
 
+    // 构造函数
 	public Account(int userId, int balance) {
 		super();
 		this.userId = userId;
 		this.balance = balance;
 	}
 
+  	// 属性getter、setter方法
 	public int getId() {
 		return id;
 	}
@@ -372,6 +431,7 @@ public class Account {
 		this.balance = balance;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "Account [id=" + id + ", userId=" + userId + ", balance=" + balance + "]";
@@ -381,7 +441,7 @@ public class Account {
 
 
 
-`Doctor.java`
+`Doctor.java` 健康指导员类
 
 ```java
 package com.shiyanlou.lesson8.domain;
@@ -392,27 +452,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class Doctor {
-
-	private int id;
+  	
   	// 主键id
-	private String name;
+	private int id;
   	// 名称
+	private String name;
+  	// 性别  	
 	private int gender;
-  	// 性别
-	private String education;
   	// 学历
-	private String certificateId;
+	private String education;
   	// 编号
+	private String certificateId;
 	
 	// 一对多
 	@JsonInclude(Include.NON_DEFAULT)
 	private List<User> users;
 	
+  	// 构造函数
 	public Doctor() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+  
+  	// 构造函数
 	public Doctor(String name, int gender, String education, String certificateId, List<User> users) {
 		super();
 		this.name = name;
@@ -422,6 +484,7 @@ public class Doctor {
 		this.users = users;
 	}
 
+  	// 属性setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -470,6 +533,7 @@ public class Doctor {
 		this.users = users;
 	}
 
+  	// 重写toString方法
 	@Override
 	public String toString() {
 		return "Doctor [id=" + id + ", name=" + name + ", gender=" + gender + ", education=" + education
@@ -480,7 +544,7 @@ public class Doctor {
 
 
 
-`TransferDetail.java`
+`TransferDetail.java` 转账类
 
 ```java
 package com.shiyanlou.lesson8.domain;
@@ -488,19 +552,21 @@ package com.shiyanlou.lesson8.domain;
 import java.sql.Date;
 
 public class TransferDetail {
-
-	private int id;
+  
   	// 主键id
-	private int userId;
+	private int id;
   	// 用户id
-	private int doctorId;
+	private int userId;
   	// 医生id
-	private int money;
+	private int doctorId;
 	// 转账金额
+	private int money;
+
+  	// 构造函数
 	public TransferDetail() {
 		// TODO Auto-generated constructor stub
 	}
-
+  	// 构造函数
 	public TransferDetail(int userId, int doctorId, int money) {
 		super();
 		this.userId = userId;
@@ -508,6 +574,7 @@ public class TransferDetail {
 		this.money = money;
 	}
 
+  	// 属性setter、getter
 	public int getId() {
 		return id;
 	}
@@ -540,6 +607,7 @@ public class TransferDetail {
 		this.money = money;
 	}
 
+   	// 重写toString方法
 	@Override
 	public String toString() {
 		return "TransferDetail [id=" + id + ", userId=" + userId + ", doctorId="
@@ -550,7 +618,7 @@ public class TransferDetail {
 
 
 
-`User.java`
+`User.java` 用户类
 
 ```java
 package com.shiyanlou.lesson8.domain;
@@ -559,26 +627,28 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class User{
-
-	private int id;
+  
   	// 自增主键id
+	private int id;
+    // 用户名称
 	private String name;
-  	// 用户名称
-	@JsonInclude(Include.NON_DEFAULT)
-	private int gender;
   	// 用户性别
 	@JsonInclude(Include.NON_DEFAULT)
+	private int gender;
+	// 用户年龄  	
+	@JsonInclude(Include.NON_DEFAULT)
 	private int age;
-	// 用户年龄
 	// 多对一
 	@JsonInclude(Include.NON_DEFAULT)
 	private Doctor doctor;
 	
+  	// 构造函数
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+    // 构造函数
 	public User(String name, int gender, int age, Doctor doctor) {
 		super();
 		this.name = name;
@@ -587,6 +657,7 @@ public class User{
 		this.doctor = doctor;
 	}
 
+  	// 属性setter、getter方法
 	public int getId() {
 		return id;
 	}
@@ -626,7 +697,8 @@ public class User{
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
-
+  
+   	// 重写toString方法
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", doctor="
@@ -647,6 +719,12 @@ package com.shiyanlou.lesson8.service;
 import com.shiyanlou.lesson8.domain.TransferDetail;
 
 public interface AccountService {
+  
+  	 /**
+	 * 转账
+	 * @param transferDetail
+	 * @return
+	 */
 	public String transfer(TransferDetail transferDetail);
 }
 ```
@@ -662,14 +740,33 @@ import com.shiyanlou.lesson8.domain.Doctor;
 
 public interface DoctorService {
 	
+  	 /**
+	 * 创建健康管理员
+	 * @param doctor
+	 * @return
+	 */
 	public int insertDoctor(Doctor doctor);
 	
+  	 /**
+	 * 删除健康管理员
+	 * @param id
+	 * @return
+	 */
 	public int deleteDoctor(int id);
 	
+  	 /**
+	 * 更新健康管理员
+	 * @param doctor
+	 * @return
+	 */
 	public int updateDoctor(Doctor doctor);
 	
+  	 /**
+	 * 查询健康管理员
+	 * @param id
+	 * @return
+	 */
 	public Doctor selectDoctor(int id);
-	
 }
 ```
 
@@ -684,12 +781,32 @@ import com.shiyanlou.lesson8.domain.User;
 
 public interface UserService {
 	
+  	/**
+	 * 创建用户
+	 * @param user
+	 * @return
+	 */
 	public int insertUser(User user);
 	
+  	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	public int deleteUser(int id);
 	
+  	/**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
 	public int updateUser(User user);
 	
+  	/**
+	 * 查询用户
+	 * @param id
+	 * @return
+	 */
 	public User selectUser(int id);
 }
 ```
@@ -712,24 +829,33 @@ import com.shiyanlou.lesson8.domain.Account;
 import com.shiyanlou.lesson8.domain.TransferDetail;
 import com.shiyanlou.lesson8.service.AccountService;
 
-
+// 标识service
+// 标记事务
 @Service
 @Transactional
 public class AccountServiceImpl implements AccountService{
 
+  	// 自动注入mapper
 	@Autowired
 	private AccountMapper accountMapper;
 
+  	// 转账
 	@Override
 	public String transfer(TransferDetail transferDetail) {
 		try {
+          	// 获取转账金额
 			int money = transferDetail.getMoney();
+          	// 获取用户id
 			int userId = transferDetail.getUserId();
+          	// 获取健康管理员id
 			int doctorId = transferDetail.getDoctorId();
 			
+          	// 获取用户余额
 			int userBalance = accountMapper.select(userId);
+          	// 获取健康管理员余额
 			int doctorBalance = accountMapper.select(doctorId);
 
+            // 更新用户、健康管理员账户余额
 			if (userBalance >= money) {
 				Account userAccount = new Account(userId, userBalance - money);
 				accountMapper.update(userAccount);
@@ -767,24 +893,45 @@ import com.shiyanlou.lesson8.service.DoctorService;
 @Service
 public class DoctorServiceImpl implements DoctorService{
 
+  	// 自动注入mapper
 	@Autowired
 	private DoctorMapper doctorMapper;
 	
+     /**
+	 * 创建健康管理员
+	 * @param doctor
+	 * @return
+	 */
 	public int insertDoctor(Doctor doctor) {
 		int modifyId = doctorMapper.insert(doctor);
 		return modifyId;
 	}
 	
+   /**
+	 * 删除健康管理员
+	 * @param id
+	 * @return
+	 */
 	public int deleteDoctor(int id) {
 		int modifyId = doctorMapper.delete(id);
 		return modifyId;
 	}
 	
+   /**
+	 * 更新健康管理员
+	 * @param doctor
+	 * @return
+	 */
 	public int updateDoctor(Doctor doctor) {
 		int modifyId = doctorMapper.update(doctor);
 		return modifyId;
 	}
 	
+   /**
+	 * 查询健康管理员
+	 * @param id
+	 * @return
+	 */
 	public Doctor selectDoctor(int id) {
 		Doctor doctor = doctorMapper.select(id);
 		return doctor;
@@ -810,24 +957,45 @@ import com.shiyanlou.lesson8.service.UserService;
 @Service
 public class UserServiceImpl implements UserService{
 
+    // 自动注入mapper
 	@Autowired
 	private UserMapper userMapper;
 	
+    /**
+	 * 创建用户
+	 * @param user
+	 * @return
+	 */
 	public int insertUser(User user) {
 		int modifyId = userMapper.insert(user);
 		return modifyId;
 	}
 	
+  	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	public int deleteUser(int id) {
 		int modifyId = userMapper.delete(id);
 		return modifyId;
 	}
 	
+  	/**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
 	public int updateUser(User user) {
 		int modifyId = userMapper.update(user);
 		return modifyId;
 	}
 	
+  	/**
+	 * 查询用户
+	 * @param id
+	 * @return
+	 */
 	public User selectUser(int id) {
 		User user = userMapper.select(id);
 		return user;
@@ -854,12 +1022,20 @@ import com.shiyanlou.lesson8.domain.ResultObject;
 import com.shiyanlou.lesson8.domain.TransferDetail;
 import com.shiyanlou.lesson8.service.AccountService;
 
+// 标记controller，返回json数据
 @RestController
 public class AccountController {
 	
+  
+    // 自动注入service
 	@Autowired
 	private AccountService accountService;
 	
+  	/**
+	 * 转账
+	 * @param transferDetail
+	 * @return
+	 */
 	@PostMapping("transfer")
 	public ResultObject add(@RequestBody TransferDetail transferDetail) {
 		String status = accountService.transfer(transferDetail);
@@ -893,13 +1069,20 @@ import com.shiyanlou.lesson8.domain.Doctor;
 import com.shiyanlou.lesson8.domain.ResultObject;
 import com.shiyanlou.lesson8.service.DoctorService;
 
+// 标记controller，返回json数据，URL前缀：/doctor
 @RestController
 @RequestMapping("doctor")
 public class DoctorController {
 	
+    // 自动注入service
 	@Autowired
 	private DoctorService doctorService;
 	
+  	/**
+	 * 创建健康管理员
+	 * @param doctor
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject add(@RequestBody Doctor doctor) {
 		int modifyId = doctorService.insertDoctor(doctor);
@@ -909,7 +1092,11 @@ public class DoctorController {
 		return resultObject;
 	}
 	
-
+	/**
+	 * 删除健康管理员
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete")
 	public ResultObject delete(@RequestParam int id) {
 		int modifyId = doctorService.deleteDoctor(id);
@@ -919,6 +1106,11 @@ public class DoctorController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 更新健康管理员
+	 * @param doctor
+	 * @return
+	 */
 	@PutMapping("modify")
 	public ResultObject modify(@RequestBody Doctor doctor) {
 		int modifyId = doctorService.updateDoctor(doctor);
@@ -928,6 +1120,11 @@ public class DoctorController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 查询健康管理员
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("find")
 	public ResultObject find(@RequestParam int id) {
 		Doctor doctor = doctorService.selectDoctor(id);
@@ -963,13 +1160,20 @@ import com.shiyanlou.lesson8.domain.ResultObject;
 import com.shiyanlou.lesson8.domain.User;
 import com.shiyanlou.lesson8.service.UserService;
 
+// 标记controller，返回json数据，URL前缀：/user
 @RestController
 @RequestMapping("user")
 public class UserController {
 	
+    // 自动注入service
 	@Autowired
 	private UserService userService;
 	
+ 	 /**
+	 * 创建用户
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("add")
 	public ResultObject add(@RequestBody User user) {
 		int modifyId = userService.insertUser(user);
@@ -979,7 +1183,11 @@ public class UserController {
 		return resultObject;
 	}
 	
-
+	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("delete")
 	public ResultObject delete(@RequestParam int id) {
 		int modifyId = userService.deleteUser(id);
@@ -989,6 +1197,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+  	/**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
 	@PutMapping("modify")
 	public ResultObject modify(@RequestBody User user) {
 		int modifyId = userService.updateUser(user);
@@ -998,6 +1211,11 @@ public class UserController {
 		return resultObject;
 	}
 	
+ 	 /**
+	 * 查询用户
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("find")
 	public ResultObject find(@RequestParam int id) {
 		User user = userService.selectUser(id);
@@ -1184,6 +1402,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// springboot 启动类
 @SpringBootApplication
 @MapperScan("com.shiyanlou.lesson8.dao")
 public class MainApplication {

@@ -107,7 +107,7 @@ version: 1.0
 首先，下载lesson2代码，在web IDE界面中，选择File -> Open New Terminal，在终端中输入
 
 ```shell
-$ wget 
+$ $ wget http://labfile.oss.aliyuncs.com/courses/xxx/lesson_2.zip
 ```
 
 然后，在web IDE界面中，选择File -> Open Workspace切换工作空间，选择lesson3目录，必须切换到该目录下，否则识别不了项目。

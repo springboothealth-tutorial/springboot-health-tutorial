@@ -82,11 +82,12 @@ $ sudo apt-get update
 
 
 
-- 安装`node`和`npm`
+- 安装`node`、 `npm`和`cnpm`
 
 ```shell
 $ sudo apt-get -y install nodejs
 $ sudo apt-get -y install npm
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
 
@@ -110,7 +111,7 @@ $ mvn spring-boot:run
 打开另外一个终端中输入如下命令，安装相关的包，并且前端项目
 
 ```shell
-$ npm install
+$ cnpm install
 $ npm start
 ```
 

@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0dd3d90a-0ca5-42e8-872b-eed62ed8ba45" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/health/.idea/jsLibraryMappings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/health/src/pages/echarts/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/health/src/pages/food/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/health/src/pages/sport/index.js" />
+      <change beforePath="$PROJECT_DIR$/health/.idea/workspace.xml" afterPath="$PROJECT_DIR$/health/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/health/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/go-study.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/REAM.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/assets/bike.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/assets/end_point.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/assets/imooc.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/assets/logo-ant.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/assets/start_point.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/assets/user_location.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/carousel-img/carousel-1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/carousel-img/carousel-2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/carousel-img/carousel-3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/favicon.ico" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/10.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/11.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/12.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/13.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/14.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/15.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/16.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/17.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/19.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/20.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/21.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/23.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/25.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/7.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/8.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/gallery/9.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/public/index.html" afterPath="$PROJECT_DIR$/health/public/index.html" />
+      <change beforePath="$PROJECT_DIR$/health/src/App.js" afterPath="$PROJECT_DIR$/health/src/App.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/App.test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/admin.js" afterPath="$PROJECT_DIR$/health/src/admin.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/axios/index.js" afterPath="$PROJECT_DIR$/health/src/axios/index.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/components/BaseForm/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/components/Footer/index.js" afterPath="$PROJECT_DIR$/health/src/components/Footer/index.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/components/Header/index.js" afterPath="$PROJECT_DIR$/health/src/components/Header/index.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/components/Header/index.less" afterPath="$PROJECT_DIR$/health/src/components/Header/index.less" />
+      <change beforePath="$PROJECT_DIR$/health/src/components/NavLeft/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/components/NavLeft/index.less" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/config/menuConfig.js" afterPath="$PROJECT_DIR$/health/src/config/menuConfig.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/index.js" afterPath="$PROJECT_DIR$/health/src/index.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/logo.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/city/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/demo/Child.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/demo/Life.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/demo/index.less" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/echarts/bar/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/echarts/line/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/echarts/pie/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/form/login.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/form/register.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/home/index.js" afterPath="$PROJECT_DIR$/health/src/pages/home/index.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/login/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/login/index.less" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/map/bikeMap.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/nomatch/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/order/detail.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/order/detail.less" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/order/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/permission/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/rich/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route1/Home.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route1/Main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route1/about.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route1/topic.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route2/Home.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route2/Main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route2/router.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route3/Home.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route3/Main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route3/NoMatch.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route3/info.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/route_demo/route3/router.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/table/basicTable.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/table/highTable.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/buttons.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/carousel.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/gallery.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/loadings.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/messages.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/modals.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/notice.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/tabs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/ui/ui.less" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/pages/user/index.js" afterPath="$PROJECT_DIR$/health/src/pages/user/index.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/city/list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/city/open.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/info_alarm.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/map/bike_list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/mock.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/open_city.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/order/detail.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/order/ebike_info.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/order/finish_order.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/order/list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/permission/edit.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/proxy.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/query.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/restful/_id/list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/role/create.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/role/list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/role/user_list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/role/user_role_edit.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/table/high/list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/table/list.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/table/list1.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/upload.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/user/add.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/user/delete.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/api/user/edit.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/bike.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/carousel-img/carousel-1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/carousel-img/carousel-2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/carousel-img/carousel-3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/end_point.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/imooc.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/logo-ant.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/start_point.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/assets/user_location.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/carousel-img/carousel-1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/carousel-img/carousel-2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/carousel-img/carousel-3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/10.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/11.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/12.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/13.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/14.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/15.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/16.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/17.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/19.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/20.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/21.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/23.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/25.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/7.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/8.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/gallery/9.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/image/demo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/menuConfig.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/resource/order/detail.less" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/health/src/router.js" afterPath="$PROJECT_DIR$/health/src/router.js" />
+      <change beforePath="$PROJECT_DIR$/health/src/utils/utils.js" afterPath="$PROJECT_DIR$/health/src/utils/utils.js" />
+      <change beforePath="$PROJECT_DIR$/health/笔记.txt" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/health/src/components/Header/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/health/src/components/Header/index.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1386">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/health/src/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>userIndexs</find>
+      <find>userIndexes</find>
+      <find>isNot</find>
+      <find>getDetailInfo</find>
+      <find>getfoodEnergiesOption</find>
+      <find>通用管理系统</find>
+      <find>getState</find>
+      <find>咸鱼一条</find>
+      <find>联系地址</find>
+      <find>热量</find>
+      <find>版权所有</find>
+      <find>消耗能量</find>
+      <find>俞静</find>
+      <find>HEALTH</find>
+      <find>App\b</find>
+      <find>React</find>
+      <find>logo</find>
+      <find>JsonP</find>
+      <find>imooc</find>
+      <find>imoocmanager</find>
+      <find>Imooc</find>
+      <find>mooc</find>
+      <find>connect</find>
+      <find>menuTreeNode</find>
+      <find>axios</find>
+      <find>import React from \'react\'\nimport \{ Row\,Col \} from \&quot;antd\&quot;\nimport \'\.\/index\.less\'\n\nimport \{ connect \} from \'react\-redux\'\nimport MenuConfig from \'\.\/\.\.\/\.\.\/config\/menuConfig\'\n\nclass Header extends React\.Component\{\n    state\=\{\}\n    componentWillMount\(\)\{\n        const menuTreeNode \= this\.renderMenu\(MenuConfig\)\;\n\n        this\.setState\(\{\n            userName\:\'健康管理员\'\,\n            menuTreeNode\n        \}\)\;\n    \}\n\n    renderMenu \=\(data\)\=\&gt;\{\n    return data\.map\(\(item\)\=\&gt;\{\n    if\(item\.children\)\{\n    return \(\n        \&lt;SubMenu title\=\{item\.title\} key\=\{item\.key\}\&gt;\n        \{ this\.renderMenu\(item\.children\)\}\n        \&lt;\/SubMenu\&gt;\n        \)\n        \}\n        return \&lt;Menu\.Item title\=\{item\.title\} key\=\{item\.key\}\&gt;\n        \&lt;NavLink to\=\{item\.key\}\&gt;\{item\.title\}\&lt;\/NavLink\&gt;\n        \&lt;\/Menu\.Item\&gt;\n        \}\)\n    \}\n\n    render\(\)\{\n        const \{ menuName\, menuType \} \= this\.props\;\n        return \(\n            \&lt;div className\=\&quot;header\&quot;\&gt;\n                \&lt;Row className\=\&quot;header\-top\&quot;\&gt;\n                    \{\n                        menuType\?\n                            \&lt;Col span\=\&quot;6\&quot; className\=\&quot;logo\&quot;\&gt;\n                                \&lt;img src\=\&quot;\/assets\/logo\-ant\.svg\&quot; alt\=\&quot;\&quot;\/\&gt;\n                                \&lt;span\&gt;健康管理系统\&lt;\/span\&gt;\n                            \&lt;\/Col\&gt;\:\'\'\n                    \}\n                    \&lt;Col span\=\{menuType\?18\:24\}\&gt;\n                        \&lt;span\&gt;欢迎\，\{this\.state\.userName\}\&lt;\/span\&gt;\n                    \&lt;\/Col\&gt;\n\n                \&lt;\/Row\&gt;\n\n                \&lt;Row className\=\&quot;header\-bottom\&quot;\&gt;\n                    \&lt;Menu\n                    onClick\=\{this\.handleClick\}\n                    theme\=\&quot;dark\&quot;\n                    \&gt;\n                    \{ this\.state\.menuTreeNode \}\n                    \&lt;\/Menu\&gt;\n                \&lt;\/Row\&gt;\n\n                \{\n                    menuType\?\'\'\:\n                        \&lt;Row className\=\&quot;breadcrumb\&quot;\&gt;\n                            \&lt;Col span\=\&quot;4\&quot; className\=\&quot;breadcrumb\-title\&quot;\&gt;\n                                \{menuName \|\| \'首页\'\}\n                            \&lt;\/Col\&gt;\n                        \&lt;\/Row\&gt;\n                \}\n            \&lt;\/div\&gt;\n        \)\;\n    \}\n\}\nconst mapStateToProps \= state \=\&gt; \{\n    return \{\n        menuName\: state\.menuName\n    \}\n\}\;\nexport default connect\(mapStateToProps\)\(Header\)</find>
+      <find>MenuConfig</find>
+      <find>Util</find>
+      <find>handleClick</find>
+      <find>header-bottom</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>运动</replace>
+      <replace>sport</replace>
+      <replace>userIndexs</replace>
+      <replace>userIndexes</replace>
+      <replace>isNull</replace>
+      <replace>家庭住址</replace>
+      <replace>消耗能量(千卡/小时)</replace>
+      <replace>热量(千卡/500g)</replace>
+      <replace>theme</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\shiyanlou\front-end</dir>
+      <dir>D:\shiyanlou\front-end\health\src</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/health" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/health/src/pages/drug/index.js" />
+        <option value="$PROJECT_DIR$/health/src/resource/menuConfig.js" />
+        <option value="$PROJECT_DIR$/health/src/config/menuConfig.js" />
+        <option value="$PROJECT_DIR$/health/src/pages/user/index.js" />
+        <option value="$PROJECT_DIR$/health/src/pages/sport/index.js" />
+        <option value="$PROJECT_DIR$/health/src/pages/food/index.js" />
+        <option value="$PROJECT_DIR$/health/src/router.js" />
+        <option value="$PROJECT_DIR$/health/src/components/Footer/index.js" />
+        <option value="$PROJECT_DIR$/health/src/utils/utils.js" />
+        <option value="$PROJECT_DIR$/health/src/index.js" />
+        <option value="$PROJECT_DIR$/health/src/App.js" />
+        <option value="$PROJECT_DIR$/health/src/pages/echarts/index.js" />
+        <option value="$PROJECT_DIR$/health/public/index.html" />
+        <option value="$PROJECT_DIR$/health/src/components/NavLeft/index.js" />
+        <option value="$PROJECT_DIR$/health/src/components/Header/index.js" />
+        <option value="$PROJECT_DIR$/health/src/components/Header/index.less" />
+        <option value="$PROJECT_DIR$/health/src/admin.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/health/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="343" />
+    <option name="y" value="164" />
+    <option name="width" value="1547" />
+    <option name="height" value="827" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="health" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="health" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="health" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="jsx.switch.disabled" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\shiyanlou\front-end\health\src" />
+      <recent name="D:\shiyanlou\front-end\health\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\shiyanlou\front-end\health\src\pages\echarts" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0dd3d90a-0ca5-42e8-872b-eed62ed8ba45" name="Default" comment="" />
+      <created>1548557002042</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548557002042</updated>
+      <workItem from="1548557005737" duration="69000" />
+      <workItem from="1548558421415" duration="14122000" />
+      <workItem from="1548584056634" duration="6326000" />
+      <workItem from="1548593966986" duration="4310000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="24827000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1987315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2668187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/health/src/resource/common.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1029">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/resource/assets/end_point.png" />
+    <entry file="file://$PROJECT_DIR$/health/src/resource/assets/bike.jpg" />
+    <entry file="file://$PROJECT_DIR$/health/src/resource/carousel-img/carousel-2.jpg" />
+    <entry file="file://$PROJECT_DIR$/health/src/resource/image/demo.png" />
+    <entry file="file://$PROJECT_DIR$/health/src/resource/header/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/components/BaseForm/index.js" />
+    <entry file="file://$PROJECT_DIR$/health/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/components/ETable/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/node_modules/antd/lib/card/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/pages/user/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-337">
+          <caret line="285" column="33" lean-forward="true" selection-start-line="285" selection-start-column="33" selection-end-line="285" selection-end-column="33" />
+          <folding>
+            <element signature="e#448#471#0" expanded="false" />
+            <element signature="e#487#532#0" expanded="false" />
+            <element signature="e#1348#3221#0" expanded="false" />
+            <element signature="e#3247#3907#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/pages/login/index.js" />
+    <entry file="file://$PROJECT_DIR$/health/src/components/Footer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/pages/food/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="200" column="11" lean-forward="false" selection-start-line="200" selection-start-column="11" selection-end-line="200" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/pages/sport/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="140" column="12" lean-forward="false" selection-start-line="140" selection-start-column="12" selection-end-line="140" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/pages/nomatch/index.js" />
+    <entry file="file://$PROJECT_DIR$/health/src/utils/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/resource/menuConfig.js" />
+    <entry file="file://$PROJECT_DIR$/health/README.md" />
+    <entry file="file://$PROJECT_DIR$/health/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/App.test.js" />
+    <entry file="file://$PROJECT_DIR$/health/src/registerServiceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3453">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/logo.svg" />
+    <entry file="file://$PROJECT_DIR$/health/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/resource/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/axios/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/public/REAM.txt" />
+    <entry file="file://$PROJECT_DIR$/health/config/jest/cssTransform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/config/jest/fileTransform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/config/paths.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1584">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/config/polyfills.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-530">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/config/env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/pages/echarts/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/config/webpackDevServer.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/public/favicon.ico" />
+    <entry file="file://$PROJECT_DIR$/health/config/webpack.config.dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="263" column="52" lean-forward="false" selection-start-line="263" selection-start-column="52" selection-end-line="263" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/public/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/config/webpack.config.prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="385" column="4" lean-forward="true" selection-start-line="385" selection-start-column="4" selection-end-line="385" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/scripts/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="71" column="7" lean-forward="false" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-205">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/config/menuConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/components/NavLeft/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/components/NavLeft/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/components/Header/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/components/Header/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/health/src/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

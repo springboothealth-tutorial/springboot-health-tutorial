@@ -130,7 +130,7 @@ $ mvn archetype:generate -DgroupId=com.shiyanlou -DartifactId=lesson4 -Darchetyp
 
 #### 2.4.4 创建domain目录及文件
 
-`ResultObject.java` 用来封装后台返回结果
+`ResultObject.java` 用来封装后台返回结果、状态码、失败消息等信息
 
 ```java
 package com.shiyanlou.lesson4.domain;
@@ -194,7 +194,7 @@ public class ResultObject {
 
 
 
-`User.java` 封装的用户类
+`User.java` 用户类，封装用户姓名、密码属性
 
 ```java
 package com.shiyanlou.lesson4.domain;
@@ -278,7 +278,7 @@ public class User{
 
 #### 2.4.5 创建controller目录及文件
 
-`UserController.java` 用户控制器
+`UserController.java` 用户控制器，为在线用户数、登录、搜索等功能提供访问接口
 
 ```java
 package com.shiyanlou.lesson4.controller;
@@ -354,7 +354,7 @@ public class UserController {
 
 #### 2.4.6 创建filter目录及文件
 
-`LoginFilter.java`，登录过滤器，过滤除登录接口外的所有接口，实现登录功能
+`LoginFilter.java` 登录过滤器，过滤除登录接口外的所有接口，通过检查`session`属性---`user`实现登录功能
 
 ```java
 package com.shiyanlou.lesson4.filter;
@@ -455,7 +455,7 @@ public class LoginFilter implements Filter {
 
 #### 2.4.7 创建listener目录及文件
 
-`OnlineListener.java`，在线人数监听器，通过监听`session`，实现统计在线人数
+`OnlineListener.java` 在线人数监听器，通过监听`session`，实现统计在线人数
 
 ```java
 package com.shiyanlou.lesson4.listener;
@@ -492,7 +492,7 @@ public class OnlineListener implements HttpSessionListener{
 
 #### 2.4.8 创建interceptor目录及文件
 
-`WordInterceptor.java`，敏感词汇拦截器，通过拦截`/user/search`接口，获取请求参数，实现拦截敏感词汇拦截功能
+`WordInterceptor.java` 敏感词汇拦截器，通过拦截`/user/search`接口，获取请求参数，实现拦截敏感词汇拦截功能
 
 ```java
 package com.shiyanlou.lesson4.interceptor;
@@ -566,7 +566,7 @@ public class WordInterceptor  implements HandlerInterceptor{
 
 #### 2.4.9 创建config目录及文件
 
-`FilterConfig.java`，过滤器配置文件
+`FilterConfig.java` 过滤器配置文件
 
 ```java
 package com.shiyanlou.lesson4.config;
@@ -603,7 +603,7 @@ public class FilterConfig {
 
 
 
-`ListenerConfig.java`，监听器配置文件
+`ListenerConfig.java` 监听器配置文件
 
 ```java
 package com.shiyanlou.lesson4.config;
@@ -626,7 +626,7 @@ public class ListenerConfig {
 
 
 
-`InterceptorConfig.java`，拦截器配置文件
+`InterceptorConfig.java` 拦截器配置文件
 
 ```java
 package com.shiyanlou.lesson4.config;

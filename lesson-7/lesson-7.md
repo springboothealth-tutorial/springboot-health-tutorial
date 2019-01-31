@@ -253,7 +253,7 @@ $ mysql -uroot lesson7 < dump.sql
 
 #### 2.6 创建mapper目录及文件
 
-`FoodMapper.java`是对`table food`的CRUD，实现对食物的后台管理
+`FoodMapper.java` 是对`table food`的CRUD，实现对食物的后台管理
 
 ```java
 package com.shiyanlou.lesson7.mapper;
@@ -303,7 +303,7 @@ public interface FoodMapper {
 
 
 
-`SportMapper.java`是对`table sport`的CRUD，实现对运动的后台管理
+`SportMapper.java `是对`table sport`的CRUD，实现对运动的后台管理
 
 ```java
 package com.shiyanlou.lesson7.mapper;
@@ -353,7 +353,7 @@ public interface SportMapper {
 
 
 
-`UserFoodHistoryMapper.java`
+`UserFoodHistoryMapper.java` 是对`table user_food_history`的增删操作，实现对用户饮食历史的管理
 
 ```java
 package com.shiyanlou.lesson7.mapper;
@@ -375,7 +375,7 @@ public interface UserFoodHistoryMapper {
 
 
 
-`UserSportHistoryMapper.java`
+`UserSportHistoryMapper.java` 是对`table user_sport_history`的增删操作，实现对用户运动历史的管理
 
 ```java
 package com.shiyanlou.lesson7.mapper;
@@ -397,7 +397,7 @@ public interface UserSportHistoryMapper {
 
 
 
-`UserIndexMapper.java`
+`UserIndexMapper.java` 是对`table user_index`的查询操作，实现对用户生理指标的管理 
 
 ```java
 package com.shiyanlou.lesson7.mapper;
@@ -414,7 +414,7 @@ public interface UserIndexMapper {
 
 
 
-`FoodMapper.xml`
+`FoodMapper.xml`  实现`FoodMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -471,7 +471,7 @@ public interface UserIndexMapper {
 
 
 
-`SportMapper.xml`
+`SportMapper.xml` 实现`SportMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -526,7 +526,7 @@ public interface UserIndexMapper {
 
 
 
-`UserFoodHistoryMapper.xml`
+`UserFoodHistoryMapper.xml` 实现`UserFoodHistoryMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -589,7 +589,7 @@ public interface UserIndexMapper {
 
 
 
-`UserSportHistoryMapper.xml`
+`UserSportHistoryMapper.xml` 实现`UserSportHistoryMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -652,7 +652,7 @@ public interface UserIndexMapper {
 
 
 
-`UserIndexMapper.xml`
+`UserIndexMapper.xml` 实现`UserIndexMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -675,7 +675,7 @@ public interface UserIndexMapper {
 
 #### 2.7 创建domain目录及文件
 
-`ResultObject ` 封装后端返回结果 
+`ResultObject ` 封装后端返回结果、后端状态、失败消息等属性
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -1384,7 +1384,7 @@ public class UserRelationship {
 
 
 
-`UserIndex.java` 用户生理指标类
+`UserIndex.java` 用户生理指标类，封装`id`、生理指标等属性
 
 ```java
 package com.shiyanlou.lesson7.domain;
@@ -1469,7 +1469,7 @@ public class UserIndex {
 
 #### 2.8 创建service目录及文件
 
-`FoodService.java`
+`FoodService.java` 食物业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson7.service;
@@ -1518,7 +1518,7 @@ public interface FoodService {
 
 
 
-`SportService.java`
+`SportService.java` 运动业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson7.service;
@@ -1567,7 +1567,7 @@ public interface SportService {
 
 
 
-`UserFoodHistoryService.java`
+`UserFoodHistoryService.java` 用户饮食历史业务接口，定义插入、查询等方法
 
 ```java
 package com.shiyanlou.lesson7.service;
@@ -1598,7 +1598,7 @@ public interface UserFoodHistoryService {
 
 
 
-`UserRelationshipService.java`
+`UserRelationshipService.java` 用户饮食、运动、生理指标关系业务接口，定义查询等方法
 
 ```java
 package com.shiyanlou.lesson7.service;
@@ -1618,7 +1618,7 @@ public interface UserRelationshipService {
 
 
 
-`UserSportHistoryService.java`
+`UserSportHistoryService.java` 用户运动历史业务接口，定义插入、查询等方法
 
 ```java
 package com.shiyanlou.lesson7.service;
@@ -1650,7 +1650,7 @@ public interface UserSportHistoryService {
 
 #### 2.9 创建serviceImpl目录及文件
 
-`FoodServiceImpl.java`
+`FoodServiceImpl.java` 食物业务类，实现`FoodService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson7.serviceImpl;
@@ -1733,7 +1733,7 @@ public class FoodServiceImpl implements FoodService{
 
 
 
-`SportServiceImpl.java`
+`SportServiceImpl.java` 运动业务类，实现`SportService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson7.serviceImpl;
@@ -1815,7 +1815,7 @@ public class SportServiceImpl implements SportService{
 
 
 
-`UserFoodHistoryServiceImpl.java`
+`UserFoodHistoryServiceImpl.java` 用户饮食历史业务类，实现`UserFoodHistoryService.java`接口中定义插入、查询等方法
 
 ```java
 package com.shiyanlou.lesson7.serviceImpl;
@@ -1907,7 +1907,7 @@ public class UserFoodHistoryServiceImpl implements UserFoodHistoryService{
 
 
 
-`UserRelationshipServiceImpl.java`
+`UserRelationshipServiceImpl.java` 用户饮食、运动、生理指标业务类，实现`UserRelationService.java`接口中定义查询等方法
 
 ```java
 package com.shiyanlou.lesson7.serviceImpl;
@@ -1981,7 +1981,7 @@ public class UserRelationshipServiceImpl implements UserRelationshipService {
 
 
 
-`UserSportHistoryServiceImpl.java`
+`UserSportHistoryServiceImpl.java` 用户运动历史业务类，实现`UserSportdHistoryService.java`接口中定义查询等方法
 
 ```java
 package com.shiyanlou.lesson7.serviceImpl;
@@ -2076,7 +2076,7 @@ public class UserSportHistoryServiceImpl implements UserSportHistoryService{
 
 
 
-`FoodController.java`
+`FoodController.java` 食物控制器，为食物类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson7.controller;
@@ -2179,7 +2179,7 @@ public class FoodController {
 
 
 
-`SportController.java`
+`SportController.java` 运动控制器，为运动类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson7.controller;
@@ -2281,7 +2281,7 @@ public class SportController {
 
 
 
-`UserFoodHistoryController.java`
+`UserFoodHistoryController.java` 用户饮食历史控制器，为用户饮食历史类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson7.controller;
@@ -2351,7 +2351,7 @@ public class UserFoodHistoryController {
 
 
 
-`UserRelationshipController.java`
+`UserRelationshipController.java` 用户饮食、运功、生理指标控制器，为用户饮食、运动、生理指标类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson7.controller;
@@ -2390,7 +2390,7 @@ public class UserRelationshipController {
 
 
 
-`UserSportHistoryController.java`
+`UserSportHistoryController.java` 用户运动历史控制器，为用户运动历史类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson7.controller;
@@ -2467,7 +2467,9 @@ public class UserSportHistoryController {
 
 #### 2.11 创建启动类文件
 
-`MainApplication.java`
+`MainApplication.java`，内置Tomcat，整个web程序的入口
+
+- `MapperScan`注解十分重要，`value`为`mapper`所在路径，Spring Boot由这个注解可以得知去哪里扫描`mapper`文件
 
 ```java
 package com.shiyanlou.lesson7;

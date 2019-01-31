@@ -234,7 +234,7 @@ $ mysql -uroot lesson5 < dump.sql
 
 #### 2.2.6 创建mapper目录及文件
 
-`CardMapper.java`是针对`table card`的`mapper`接口文件
+`CardMapper.java` 针对`table card`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson5.mapper;
@@ -296,7 +296,7 @@ public interface CardMapper {
 
 
 
-`JobMapper.java`是针对`table job`的`mapper`接口文件
+`JobMapper.java` 针对`table job`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson5.mapper;
@@ -351,7 +351,7 @@ public interface JobMapper {
 
 
 
-`UserHobbyMapper.java`是针对`table user_hobby`的`mapper`接口文件
+`UserHobbyMapper.java` 针对`table user_hobby`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson5.mapper;
@@ -372,7 +372,7 @@ public interface UserHobbyMapper {
 
 
 
-`UserMapper.xml`是针对`table user`的`mapper`接口文件
+`UserMapper.xml` 针对`table user`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson5.mapper;
@@ -427,7 +427,7 @@ public interface UserMapper {
 
 
 
-`CardMapper.xml`
+`CardMapper.xml` 实现`CardMapper.java`接口中定义的方法
 
 - `	selectById` 功能：通过`id`查找`card`所有信息，主要练习`select`标签的使用
 - `fuzzySearch` 功能：通过`code`、`level`查找匹配的`card` ，主要练习`where`、`if`标签的使用
@@ -506,7 +506,7 @@ public interface UserMapper {
 
 
 
-`JobMapper.xml`
+`JobMapper.xml` 实现`JobMapper.java`接口文件中定义的方法
 
 - `selectById`中要重视`resultMap`的使用，由于`job`和`user`是`1:N`关系，故获取`users`时需要使用`collection`标签，其中`property`是`com.shiyanlou.demo.domain.Job`中的`users`属性，`column`是`table job`的主键`id`，`ofType`是每一条记录对应的对象类型，`select`是级联查找对应的`SQL`语句
 - `selectBriefById`，方便`user`查找相关`job`基本信息，直接使用`selectById`会产生死循环
@@ -570,7 +570,7 @@ public interface UserMapper {
 
 
 
-`UserHobbyMapper.xml`
+`UserHobbyMapper.xml` 实现`UserHobbyMapper.java`接口文件中定义的方法
 
 - `findHobbyById`中的`SQL`语句是`table user_hobby`和`table hobby`的多表连接查询，用于查找指定用户的爱好
 
@@ -593,7 +593,7 @@ public interface UserMapper {
 
 
 
-`UserMapper.xml`
+`UserMapper.xml` 实现`UserMapper.java`接口文件中定义的方法
 
 - `selectById`这个接口最为复杂，其`resultMap`中，`id`、`name`、`gender`、`age`较为简单直接获取即可，`card`与`user`是`1:1`关系，`column`需要传递外键`card_id`，`job`与`user`是`1:N`关系，`column`也需要传递外键`job_id`，而`hobby`与`user`是`N:N`关系，需要传递主键`id`。
 - `selectByJobId`是方便拥有指定`job`的`user`，不能直接使用`selectById`，会产生死循环
@@ -682,7 +682,7 @@ public interface UserMapper {
 
 #### 2.2.7 创建domain目录及文件
 
-`ResultObject.java` 用来封装后台返回结果
+`ResultObject.java` 封装后台返回结果、状态码、失败消息等属性
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -740,7 +740,7 @@ public class ResultObject {
 
 
 
-`User.java`  用户类
+`User.java`  用户类，封装`id`、姓名、年龄、身份证信息、工作信息、爱好信息等属性
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -862,7 +862,7 @@ public class User{
 
 
 
-`Hobby.java` 爱好类
+`Hobby.java` 爱好类，封装`id`、爱好名称、爱好描述、拥有同一爱好的用户等属性
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -942,7 +942,7 @@ public class Hobby {
 
 
 
-`Job.java` 
+`Job.java`  工作类，封装`id`、工作名称、工作描述等属性
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -1022,7 +1022,7 @@ public class Job {
 
 
 
-`Card.java` 身份证类
+`Card.java` 身份证类，封装`id`、号码、等级等属性
 
 ```java
 package com.shiyanlou.lesson5.domain;
@@ -1082,7 +1082,7 @@ public class Card {
 
 #### 2.2.8 创建service目录及文件
 
-`CardService.java` 
+`CardService.java` 身份证业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson5.service;
@@ -1144,7 +1144,7 @@ public interface CardService {
 
 
 
-`JobService.java`
+`JobService.java`  工作业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson5.service;
@@ -1193,7 +1193,7 @@ public interface JobService {
 
 
 
-`UserService.java`
+`UserService.java`  用户业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson5.service;
@@ -1244,7 +1244,7 @@ public interface UserService {
 
 #### 2.2.9 创建serviceImpl目录及文件
 
-`CardServiceImpl.java`
+`CardServiceImpl.java` 身份证业务类，实现`CardService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson5.serviceImpl;
@@ -1340,7 +1340,7 @@ public class CardServiceImpl implements CardService{
 
 
 
-`JobServiceImpl.java`
+`JobServiceImpl.java` 工作业务类，实现`JobService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson5.serviceImpl;
@@ -1416,7 +1416,7 @@ public class JobServiceImpl implements JobService{
 
 
 
-`UserServiceImpl.java`
+`UserServiceImpl.java` 用户业务类，实现`UserService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson5.serviceImpl;
@@ -1502,7 +1502,7 @@ public class UserServiceImpl implements UserService{
 
 
 
-`CardController.java`
+`CardController.java` 身份证控制器，为身份证类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson5.controller;
@@ -1656,7 +1656,7 @@ public class CardController {
 
 
 
-`JobController.java`
+`JobController.java` 工作控制器，为工作类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson5.controller;
@@ -1762,7 +1762,7 @@ public class JobController {
 
 
 
-`UserController.java`
+`UserController.java` 用户控制器，为用户类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson5.controller;

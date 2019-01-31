@@ -225,7 +225,7 @@ $ mysql -uroot lesson6 < dump.sql
 
 #### 2.6 创建mapper目录及文件
 
-`UserMapper.java`
+`UserMapper.java` 用户持久化层接口文件，定义用户类增删改查等方法
 
 ```java
 package com.shiyanlou.lesson6.mapper;
@@ -275,7 +275,7 @@ public interface UserMapper {
 
 
 
-`UserIndexMapper.java`
+`UserIndexMapper.java` 用户生理指标持久化层接口，为用户生理指标类定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson6.mapper;
@@ -319,7 +319,7 @@ public interface UserIndexMapper {
 
 
 
-`UserMapper.xml`
+`UserMapper.xml` 用户持久化层，实现了`UserMapper.java`中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -382,7 +382,7 @@ public interface UserIndexMapper {
 
 
 
-`UserIndexMapper.xml`
+`UserIndexMapper.xml` 用户生理指标持久化层，实现了`UserIndexMapper.java`中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -434,7 +434,7 @@ public interface UserIndexMapper {
 
 #### 2.7 创建domain目录及文件
 
-`ResultObject` 封装后端返回数据
+`ResultObject` 封装后端返回数据、后端状态、失败消息等
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -492,7 +492,7 @@ public class ResultObject {
 
 
 
-`User.java` 用户类
+`User.java` 用户类，封装了用户`id`、姓名、年龄、性别等属性
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -598,9 +598,7 @@ public class User{
 
 
 
-`UserIndex.java` 用户生理指标类
-
-其中属性含义如下：
+`UserIndex.java` 用户生理指标类，封装了`id`、生理指标类型、数值等属性
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -686,7 +684,7 @@ public class UserIndex {
 
 
 
-`PaginationObject.java` 支持分页查询类
+`PaginationObject.java` 支持分页查询类，封装了结果等属性
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -756,7 +754,7 @@ public class PaginationObject {
 
 #### 2.8 创建service目录及文件
 
-`UserService.java`
+`UserService.java`  用户业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson6.service;
@@ -805,7 +803,7 @@ public interface UserService {
 
 
 
-`UserIndexService.java`
+`UserIndexService.java` 用户生理指标业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson6.service;
@@ -850,7 +848,7 @@ public interface UserIndexService {
 
 #### 2.9 创建serviceImpl目录及文件
 
-`UserServiceImpl.java`
+`UserServiceImpl.java` 用户业务类，实现`UserService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson6.serviceImpl;
@@ -936,7 +934,7 @@ public class UserServiceImpl implements UserService{
 
 
 
-`UserIndexServiceImpl.java`
+`UserIndexServiceImpl.java` 用户生理指标业务类，实现`UserIndexService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson6.serviceImpl;
@@ -1008,7 +1006,7 @@ public class UserIndexServiceImp implements UserIndexService{
 
 #### 2.10 创建controller目录及文件
 
-`UserController.java`
+`UserController.java` 用户控制器，为用户类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson6.controller;
@@ -1111,7 +1109,7 @@ public class UserController {
 
 
 
-`UserIndexController.java`
+`UserIndexController.java` 用户生理指标控制器，为用户生理指标类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson6.controller;
@@ -1205,7 +1203,9 @@ public class UserIndexController {
 
 #### 2.11 创建启动类文件
 
-`MainApplication.java`
+`MainApplication.java`，内置Tomcat，整个web程序的入口
+
+- `MapperScan`注解十分重要，`value`为`mapper`所在路径，Spring Boot由这个注解可以得知去哪里扫描`mapper`文件
 
 ```java
 package com.shiyanlou.lesson6;

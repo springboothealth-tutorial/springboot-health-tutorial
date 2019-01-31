@@ -171,7 +171,7 @@ $ $ wget http://labfile.oss.aliyuncs.com/courses/xxx/lesson_2.zip
 
 #### 2.2.4 Junit单元测试
 
-`BasicTest.java` 熟悉Junit基本注解、执行顺序
+`BasicTest.java` 熟悉`Test`、`Ignore`等`Junit`基本注解，此外通过`Before`、`After`等注解理解单元测试执行顺序
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -249,7 +249,7 @@ public class BasicTest {
 
 #### 2.2.5 Junit套件测试
 
-`FirstTest.java` 第一个测试类
+`FirstTest.java` 套件测试中第一个测试类
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -266,7 +266,7 @@ public class FirstTest {
 
 
 
-`SecondTest.java` 第二个测试类
+`SecondTest.java` 套件测试中第二个测试类
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -283,7 +283,7 @@ public class SecondTest {
 
 
 
-`ThirdTest.java` 第三个测试类
+`ThirdTest.java` 套件测试中第三个测试类
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -300,7 +300,7 @@ public class ThirdTest {
 
 
 
-`SuiteTest.java` 套件测试中的空类
+`SuiteTest.java` 套件测试中的空类，运行该空类，上面三个测试类将以此执行
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -320,7 +320,7 @@ public class SuiteTest {
 
 
 #### 2.2.5 Spring Boot测试
-`AccountControllerTest.java` 针对lesson2中的`AccountController.java`的方法进行测试
+`AccountControllerTest.java` 针对`lesson2`中的`AccountController.java`的方法进行测试
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -396,7 +396,7 @@ public class AccountControllerTest {
 
 
 
-`CookieControllerTest.java` 针对lesson2中的`CookieController.java`的方法进行测试
+`CookieControllerTest.java` 针对`lesson2`中的`CookieController.java`的方法进行测试
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -492,7 +492,7 @@ public class CookieControllerTest {
 
 
 
-`SessionControllerTest.java` 针对lesson2中的`SessionController.java`的方法进行测试
+`SessionControllerTest.java` 针对`lesson2`中的`SessionController.java`的方法进行测试
 
 ```java
 package com.shiyanlou.lesson3.test;
@@ -584,7 +584,7 @@ public class SessionControllerTest {
 
 
 
-`UserControllerTest.java` 针对lesson2中的`UserController.java`的方法进行测试
+`UserControllerTest.java` 针对`lesson2`中的`UserController.java`的方法进行测试
 
 ```java
 package com.shiyanlou.lesson3.test;

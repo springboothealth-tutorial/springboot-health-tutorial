@@ -188,7 +188,7 @@ $ mvn archetype:generate -DgroupId=com.shiyanlou -DartifactId=lesson2 -Darchetyp
 
 #### 2.4.4 创建domain目录及文件
 
-`ResultObject.java` 用来封装后台返回结果
+`ResultObject.java` 用来封装后台返回结果、状态、错误原因
 
 ```java
 package com.shiyanlou.lesson2.domain;
@@ -257,7 +257,7 @@ public class ResultObject {
 
 
 
-`User.java` 封装的用户类
+`User.java` 用户类，封装用户主要属性，包括`id`、姓名、性别、年龄等
 
 ```java
 package com.shiyanlou.lesson2.domain;
@@ -327,7 +327,7 @@ public class User{
 
 
 
-`Account.java` 账户类，用来熟悉Jackson的使用
+`Account.java` 账户类，用来熟悉`Jackson`中`JsonProperty`、`JsonInclude`、`JsonIgnore`等主要注解的使用
 
 ```java
 package com.shiyanlou.lesson2.domain;
@@ -418,7 +418,7 @@ public class Account{
 #### 2.4.5 创建controller目录及文件
 
 
-`AccountController.java` 账户控制器，用来熟悉Jackson的使用
+`AccountController.java` 账户控制器，通过上传`Account`来熟悉`Jackson`的使用
 
 ```java
 package com.shiyanlou.lesson2.controller;
@@ -448,7 +448,7 @@ public class AccountController {
 
 
 
-`CookieController.java` `cookie`控制器，用来熟悉对`cookie`的操作
+`CookieController.java` `cookie`控制器，实现`cookie`创建、携带、获取等功能，通过这些功能来熟悉对`cookie`的操作
 
 ```java
 package com.shiyanlou.lesson2.controller;
@@ -513,7 +513,7 @@ public class CookieController {
 
 
 
-`FileController.java` 文件控制器，实现上传文件功能
+`FileController.java` 文件控制器，通过`MultipartFile`实现上传文件功能
 
 ```java
 package com.shiyanlou.lesson2.controller;
@@ -571,7 +571,7 @@ public class FileController {
 
 
 
-`SessionController.java` 会话控制器，熟悉session常见操作，包括创建session、设置、获取session属性
+`SessionController.java` 会话控制器，熟悉`session`常见操作，包括创建`session`、设置、获取`session`属性
 
 ```java
 package com.shiyanlou.lesson2.controller;
@@ -621,11 +621,10 @@ public class SessionController {
 
 
 
-`UserController.java` 用户控制器，熟悉常见请求方法类型
+`UserController.java` 用户控制器，熟悉`Post`、`Delete`、`Get`、`Put`常见请求方法类型，还有各种获取参数方式
 
 ```java
 package com.shiyanlou.lesson2.controller;
-
 
 import java.util.HashMap;
 import java.util.Map;
@@ -802,3 +801,4 @@ $ mvn spring-boot:run
 ## 三、实验总结
 
 ​	本节课先对Spring Boot Web、Curl、Jackson进行了基本介绍，然后通过实战让同学们对这些理论知识一个直观的体验。
+

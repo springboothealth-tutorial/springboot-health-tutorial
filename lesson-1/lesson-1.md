@@ -5,39 +5,39 @@ version: 1.0
 
 # Spring Boot 快速入门
 
-   * [Spring Boot 快速入门](#spring-boot-快速入门)
-      * [一、实验简介](#一实验简介)
-         * [1.1 实验内容](#11-实验内容)
-         * [1.2 实验知识点](#12-实验知识点)
-         * [1.3 效果展示](#13-效果展示)
-         * [1.4 实验环境](#14-实验环境)
-         * [1.5 项目源码](#15-项目源码)
-      * [二、实验步骤](#二实验步骤)
-         * [2.1 Spring Boot 概述](#21-spring-boot-概述)
-           ​    * [Spring Boot优点](#spring-boot优点)
-         * [2.2 文件结构介绍](#22-文件结构介绍)
-         * [2.3 项目构建](#23-项目构建)
-            * [2.3.1自动构建](#231自动构建)
-               * [1. 访问Spring Boot主页](#1-访问spring-boot主页)
-               * [2. 下载项目](#2-下载项目)
-               * [3. 导入项目工程](#3-导入项目工程)
-               * [4. 创建domain文件](#4-创建domain文件)
-               * [5. 创建service文件](#5-创建service文件)
-               * [6. 创建serviceImpl文件](#6-创建serviceimpl文件)
-               * [7. 创建controller文件](#7-创建controller文件)
-               * [8. 访问测试](#8-访问测试)
-               * [9.打包发布](#9打包发布)
-            * [2.3.2 手动构建](#232-手动构建)
-               * [1. 创建项目](#1-创建项目)
-               * [2. 修改pom文件](#2-修改pom文件)
-               * [3. 创建启动类](#3-创建启动类)
-               * [4. 创建domain文件](#4-创建domain文件-1)
-               * [5. 创建service文件](#5-创建service文件-1)
-               * [6. 创建serviceImpl文件](#6-创建serviceimpl文件-1)
-               * [7. 创建controller文件](#7-创建controller文件-1)
-               * [8. 访问测试](#8-访问测试-1)
-               * [9.打包发布](#9打包发布-1)
-      * [三、实验总结](#三实验总结)
+* [Spring Boot 快速入门](#spring-boot-快速入门)
+     * [一、实验简介](#一实验简介)
+        * [1.1 实验内容](#11-实验内容)
+        * [1.2 实验知识点](#12-实验知识点)
+        * [1.3 效果展示](#13-效果展示)
+        * [1.4 实验环境](#14-实验环境)
+        * [1.5 项目源码](#15-项目源码)
+     * [二、实验步骤](#二实验步骤)
+        * [2.1 Spring Boot 概述](#21-spring-boot-概述)
+          ​    * [Spring Boot优点](#spring-boot优点)
+        * [2.2 文件结构介绍](#22-文件结构介绍)
+        * [2.3 项目构建](#23-项目构建)
+           * [2.3.1自动构建](#231自动构建)
+              * [1. 访问Spring Boot主页](#1-访问spring-boot主页)
+              * [2. 下载项目](#2-下载项目)
+              * [3. 导入项目工程](#3-导入项目工程)
+              * [4. 创建domain文件](#4-创建domain文件)
+              * [5. 创建service文件](#5-创建service文件)
+              * [6. 创建serviceImpl文件](#6-创建serviceimpl文件)
+              * [7. 创建controller文件](#7-创建controller文件)
+              * [8. 访问测试](#8-访问测试)
+              * [9.打包发布](#9打包发布)
+           * [2.3.2 手动构建](#232-手动构建)
+              * [1. 创建项目](#1-创建项目)
+              * [2. 修改pom文件](#2-修改pom文件)
+              * [3. 创建启动类](#3-创建启动类)
+              * [4. 创建domain文件](#4-创建domain文件-1)
+              * [5. 创建service文件](#5-创建service文件-1)
+              * [6. 创建serviceImpl文件](#6-创建serviceimpl文件-1)
+              * [7. 创建controller文件](#7-创建controller文件-1)
+              * [8. 访问测试](#8-访问测试-1)
+              * [9.打包发布](#9打包发布-1)
+     * [三、实验总结](#三实验总结)
 
 ##  一、实验简介
 
@@ -152,10 +152,11 @@ $ rm -rf calculator.zip
 
 ##### 4. 创建domain文件
 
+`ResultObject.java` 用来封装后端返回的结果、错误原因、处理结果状态
+
   ```java
 package com.shiyanlou.calculator.domain;
 
-// 封装后端返回结果
 public class ResultObject {
 
   	// 计算结果
@@ -216,6 +217,8 @@ public class ResultObject {
 
 ##### 5. 创建service文件
 
+`CalculatorService` 定义计算器业务接口中的方法`compute`
+
   ```java
 package com.shiyanlou.calculator.service;
 
@@ -236,6 +239,8 @@ public interface CalculatorService {
 
 
 ##### 6. 创建serviceImpl文件
+
+`CalculatorServiceImpl` 实现上节`CalculatorService` 中定义的方法`compute`
 
   ```java
 package com.shiyanlou.calculator.serviceImpl;
@@ -309,6 +314,8 @@ public class CalculatorServiceImpl implements CalculatorService{
 
 
 ##### 7. 创建controller文件
+
+`CalculatorController` 负责计算器功能页面控制访问
 
   ``` java
  package com.shiyanlou.calculator.controller;
@@ -483,7 +490,7 @@ public class Application {
 
 ##### 4. 创建domain文件
 
-创建`ResultObject` 用来封装返回数据。
+创建`ResultObject` 用来封装返回数据、错误原因、处理结果状态。
 
 ```java
 package com.shiyanlou.clock.domain;
@@ -548,6 +555,8 @@ public class ResultObject {
 
 ##### 5. 创建service文件
 
+`ClockService` 定义时钟业务接口中主要方法`getDiff`
+
 ```java
 package com.shiyanlou.clock.service;
 
@@ -569,6 +578,8 @@ public interface ClockService {
 
 
 ##### 6. 创建serviceImpl文件
+
+`ClockServiceImpl` 实现上节`ClockService` 中定义的`getdiff`方法的功能
 
 ```java
 package com.shiyanlou.clock.serviceImpl;
@@ -619,6 +630,8 @@ public class ClockServiceImpl implements ClockService{
 
 
 ##### 7. 创建controller文件
+
+`ClockController` 负责时钟功能页面控制访问
 
 ```java
 package com.shiyanlou.clock.controller;
@@ -700,3 +713,4 @@ $ java -jar target/clock-0.0.1-SNAPSHOT.jar
 ## 三、实验总结
 
 ​	本节课先对Spring Boot进行一个基本介绍，让学员有一个整体的认识，然后对Spring Boot的目录结构做了一个介绍。接着使用两种方式通过maven构建两个简单项目，让学员有一个直观的体验。
+

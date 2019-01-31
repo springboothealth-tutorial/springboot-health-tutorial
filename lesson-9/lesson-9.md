@@ -271,7 +271,7 @@ OK
 #### 2.7 创建dao目录及文件
 
 
-`UserMapper.java`
+`UserMapper.java` 针对`table user`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson9.dao;
@@ -354,7 +354,7 @@ public class ResultObject {
 
 
 
-`User.java` 用户类
+`User.java` 用户类，封装`id`、姓名、年龄、密码等属性
 
 ```java
 package com.shiyanlou.lesson9.domain;
@@ -446,7 +446,7 @@ public class User implements Serializable{
 
 #### 2.9 创建service目录及文件
 
-`UserService.java`
+`UserService.java` 用户业务接口，定义登录、注销等方法
 
 ```java
 package com.shiyanlou.lesson9.service;
@@ -476,7 +476,7 @@ public interface UserService {
 
 #### 2.10 创建serviceImpl目录及文件
 
-`UserServiceImpl.java`
+`UserServiceImpl.java` 用户业务类，实现`UserService.java`接口中定义登录、注销等方法
 
 ```java
 package com.shiyanlou.lesson9.serviceImpl;
@@ -565,7 +565,7 @@ public class UserServiceImpl implements UserService{
 
 #### 2.11 创建controller目录及文件
 
-`UserController.java`
+`UserController.java` 用户控制器，为用户类登录、注销等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson9.controller;
@@ -634,7 +634,7 @@ public class UserController {
 
 #### 2.12 创建mapper文件
 
-`UserMapper.xml`
+`UserMapper.xml` 实现`UserMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -661,7 +661,7 @@ public class UserController {
 
 #### 2.13 创建config文件
 
-`RedisConfig.java`
+`RedisConfig.java` `redis`序列化方式配置文件
 
 ```java
 package com.shiyanlou.lesson9.config;
@@ -712,7 +712,7 @@ public class RedisConfig {
 
 
 
-`WebConfig.java`
+`WebConfig.java` 配置拦截器，拦截除登录接口外的其他所有接口
 
 ```java
 package com.shiyanlou.lesson9.config;
@@ -745,7 +745,7 @@ public class WebConfig extends WebMvcConfigurationSupport{
 
 #### 2.14 创建interceptor文件
 
-`LoginInterceptor.java`
+`LoginInterceptor.java` 登录拦截器
 
 ```java
 package com.shiyanlou.lesson9.interceptor;
@@ -844,7 +844,7 @@ public class LoginInterceptor  implements HandlerInterceptor{
 
 #### 2.15 创建util文件
 
-`RedisUtil.java`
+`RedisUtil.java` 封装`redis`常用接口
 
 ```java
 package com.shiyanlou.lesson9.util;
@@ -997,7 +997,9 @@ public class RedisUtil {
 
 #### 2.16 创建启动类文件
 
-`MainApplication.java`
+`MainApplication.java`，内置Tomcat，整个web程序的入口
+
+- `MapperScan`注解十分重要，`value`为`mapper`所在路径，Spring Boot由这个注解可以得知去哪里扫描`mapper`文件
 
 ```java
 package com.shiyanlou.lesson9;

@@ -200,7 +200,7 @@ $ mysql -uroot lesson8 < dump.sql
 
 #### 2.6 创建dao目录及文件
 
-`AccountMapper.java`
+`AccountMapper.java` 针对`table account`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson8.dao;
@@ -231,7 +231,7 @@ public interface AccountMapper {
 
 
 
-`DoctorMapper.java`
+`DoctorMapper.java` 针对`table doctor`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson8.dao;
@@ -275,7 +275,7 @@ public interface DoctorMapper {
 
 
 
-`UserController.java`
+`UserMapper.java`  针对`table user`的`mapper`接口文件
 
 ```java
 package com.shiyanlou.lesson8.dao;
@@ -322,7 +322,7 @@ public interface UserMapper {
 
 #### 2.7 创建domain目录及文件
 
-`ResultObject` 封装后端返回数据
+`ResultObject` 封装后端返回数据、后端状态、失败原因消息
 
 ```java
 package com.shiyanlou.lesson6.domain;
@@ -380,7 +380,7 @@ public class ResultObject {
 
 
 
-`Account.java` 账号类
+`Account.java` 账号类，封装`id`、用户`id`、账户余额
 
 ```java
 package com.shiyanlou.lesson8.domain;
@@ -441,7 +441,7 @@ public class Account {
 
 
 
-`Doctor.java` 健康指导员类
+`Doctor.java` 健康指导员类，封装`id`、姓名、性别、学历
 
 ```java
 package com.shiyanlou.lesson8.domain;
@@ -618,7 +618,7 @@ public class TransferDetail {
 
 
 
-`User.java` 用户类
+`User.java` 用户类，封装`id`、性别、年龄、姓名等属性
 
 ```java
 package com.shiyanlou.lesson8.domain;
@@ -711,7 +711,7 @@ public class User{
 
 #### 2.8 创建service目录及文件
 
-`AccountService.java`
+`AccountService.java` 账户业务接口，定义修改方法
 
 ```java
 package com.shiyanlou.lesson8.service;
@@ -731,7 +731,7 @@ public interface AccountService {
 
 
 
-`DoctorService.java`
+`DoctorService.java` 健康管理员业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson8.service;
@@ -772,7 +772,7 @@ public interface DoctorService {
 
 
 
-`UserService.java`
+`UserService.java` 用户业务接口，定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson8.service;
@@ -815,7 +815,7 @@ public interface UserService {
 
 #### 2.9 创建serviceImpl目录及文件
 
-`AccountServiceImpl.java`
+`AccountServiceImpl.java` 账户业务类，实现`AccountService.java`接口中定义更新等方法
 
 ```java
 package com.shiyanlou.lesson8.serviceImpl;
@@ -877,7 +877,7 @@ public class AccountServiceImpl implements AccountService{
 
 
 
-`DoctorServiceImpl.java`
+`DoctorServiceImpl.java` 健康管理员业务类，实现`DoctorService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson8.serviceImpl;
@@ -941,7 +941,7 @@ public class DoctorServiceImpl implements DoctorService{
 
 
 
-`UserServiceImpl.java`
+`UserServiceImpl.java` 用户业务类，实现`UserService.java`接口中定义增删改查等方法
 
 ```java
 package com.shiyanlou.lesson8.serviceImpl;
@@ -1008,7 +1008,7 @@ public class UserServiceImpl implements UserService{
 
 #### 2.10 创建controller目录及文件
 
-`AccountController.java`
+`AccountController.java` 账户控制器，为账户类更新等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson8.controller;
@@ -1047,7 +1047,7 @@ public class AccountController {
 
 
 
-`DoctorController.java`
+`DoctorController.java` 健康管理员控制器，为健康管理员类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson8.controller;
@@ -1138,7 +1138,7 @@ public class DoctorController {
 
 
 
-`UserController.java`
+`UserController.java`用户控制器，为用户类增删改查等方法提供访问控制接口
 
 ```java
 package com.shiyanlou.lesson8.controller;
@@ -1232,7 +1232,7 @@ public class UserController {
 
 #### 2.11 创建mapper文件
 
-`AccountMapper.xml`
+`AccountMapper.xml` 实现`AccountMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1260,7 +1260,7 @@ public class UserController {
 
 
 
-`DoctorMapper.xml`
+`DoctorMapper.xml` 实现`DoctorMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1325,7 +1325,7 @@ public class UserController {
 
 
 
-`UserMapper.xml`
+`UserMapper.xml` 实现`UserMapper.java`接口中定义的方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1393,7 +1393,9 @@ public class UserController {
 
 #### 2.12 创建启动类文件
 
-`MainApplication.java`
+`MainApplication.java`，内置Tomcat，整个web程序的入口
+
+- `MapperScan`注解十分重要，`value`为`mapper`所在路径，Spring Boot由这个注解可以得知去哪里扫描`mapper`文件
 
 ```java
 package com.shiyanlou.lesson8;

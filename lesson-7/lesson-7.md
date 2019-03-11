@@ -103,12 +103,18 @@ $ mvn archetype:generate -DgroupId=com.shiyanlou -DartifactId=lesson7 -Darchetyp
 `将如下配置文件覆盖到pom.xml中`
 
 - `spring-boot-starter-web`：Spring Boot为Web开发提供支持
+
 - `mybatis-spring-boot-starter`：为Mybatis与Spring Boot整合提供支持
+
 - `mysql-connector-java`：MySQL的JDBC驱动包，连接MySQL数据库时必须使用该jar包。
+
 - `druid`：阿里巴巴开源的数据库连接池
 
 - `pagehelper-spring-boot-starter`用来支持Mybatis分页
+
 - `spring-boot-devtools`用来支持热部署，当配置了`devtools `后，我们在`classpath`修改任何文件，保存后，项目都将会自动重启，方便开发。
+
+- ​
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -2511,68 +2517,136 @@ $ sudo apt-get -y install jq
 
 - 分页显示`food`
 
+```shell
+$ curl -v -X GET "http://localhost:8080/api/v1/food/list?pageNum=1&pageSize=6"
+```
+
 ![2-12-1](./pic/2-12-1.JPG)
 
 - 获取指定`food`的信息
+
+```shell
+$ curl -v -X GET "http://localhost:8080/api/v1/food/get?id=1"
+```
 
 ![2-12-2](./pic/2-12-2.JPG)
 
 - 新增`food`
 
+```shell
+$ curl -v -X POST "http://localhost:8080/api/v1/food/add" -H "Content-Type:application/json" -d '{"name":"1111", "description":"111", "foodEnergy":"111"}'
+```
+
 ![2-12-3](./pic/2-12-3.JPG)
 
 - `table food`中的数据
+
+```mysql
+mysql> select * from food;
+```
 
 ![2-12-4](./pic/2-12-4.JPG)
 
 - 修改指定`food`的数据
 
+```shell
+$ curl -v -X PUT "http://localhost:8080/api/v1/food/edit" -H "Content-Type:application/json" -d '{"id":6, "name":"222", "description":"222", "foodEnergy":"222"}'
+```
+
 ![2-12-5](./pic/2-12-5.JPG)
 
 - `id=6`的`food`修改后`table food`的数据
+
+```mysql
+mysql> select * from food;
+```
 
 ![2-12-6](./pic/2-12-6.JPG)
 
 - 删除指定`food`的信息
 
+```shell
+$ curl -v -X DELETE "http://localhost:8080/api/v1/food/delete?id=6"
+```
+
 ![2-12-7](./pic/2-12-7.JPG)
 
 - 删除指定`food`后，`table food`中的数据
+
+```mysql
+mysql> select * from food;
+```
 
 ![2-12-8](./pic/2-12-8.JPG)
 
 - 用户上传饮食数据
 
+```shell
+$ curl -v -X POST "http://localhost:8080/api/v1/user_food_history/add" -H "Content-Type:application/json" -d '{"userId":"2", "food":{"id":5}, "foodQuantity":"100","collectDate":"2019-01-06"}'
+```
+
 ![2-12-10](./pic/2-12-10.JPG)
 
 - 显示指定`user`的用户饮食信息
+
+```shell
+$ curl -v -X GET "http://localhost:8080/api/v1/user_food_history/get?userId=2"
+```
 
 ![2-12-11](./pic/2-12-11.JPG)
 
 - 显示指定`sport`
 
+```shell
+$ curl -v -X GET "http://localhost:8080/api/v1/sport/get?id=1"
+```
+
 ![2-12-12](./pic/2-12-12.JPG)
 - 创建`sport`
+
+```shell
+$ curl -v -X POST "http://localhost:8080/api/v1/sport/add" -H "Content-Type:application/json" -d '{"name":"555", "description":"555", "consumeEnergy":"555"}'
+```
 
 ![2-12-13](./pic/2-12-13.JPG)
 
 - 修改指定`sport`
 
+```shell
+$ curl -v -X PUT "http://localhost:8080/api/v1/sport/edit" -H "Content-Type:application/json" -d '{"id":5, "name":"111", "description":"111", "consumeEnergy":"111"}'
+```
+
 ![2-12-14](./pic/2-12-14.JPG)
 
 - 删除指定`sport`
+
+```shell
+$ curl -v -X DELETE "http://localhost:8080/api/v1/sport/delete?id=5"
+```
 
 ![2-12-15](./pic/2-12-15.JPG)
 
 - 分页显示`sport`
 
+```shell
+$ curl -v -X GET "http://localhost:8080/api/v1/sport/list?pageNum=1&pageSize=4"
+```
+
 ![2-12-16](./pic/2-12-16.JPG)
 
 - 用户上传运动记录
 
+```shell
+$ curl -v -X POST "http://localhost:8080/api/v1/user_sport_history/add" -H "Content-Type:application/json" -d '{"userId":"2", "sport":{"id":4}, "sportTime":"2","collectDate":"2019-01-06"}'
+```
+
 ![2-12-17](./pic/2-12-17.JPG)
 
 - 显示指定用户的运动记录
+
+```shell
+$ curl -v -X GET "http://localhost:8080/api/v1/user_sport_history/get?userId=2"
+```
 
 ![2-12-18](./pic/2-12-18.JPG)
 

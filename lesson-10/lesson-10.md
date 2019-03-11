@@ -30,18 +30,17 @@ version: 1.0
 
 #### 2.1 下载代码
 
-下载后端代码
+- 下载代码，该压缩包中`code-front-end`为前端代码，`lesson10`为后端代码
 
 ```shell
-$ wget http://labfile.oss.aliyuncs.com/courses/xxx/lesson_10.zip
+$ wget http://labfile.oss.aliyuncs.com/courses/xxx/code.zip
 ```
 
-下载前端代码
+- 解压代码
 
 ```shell
-$ wget http://labfile.oss.aliyuncs.com/courses/xxx/front-end.zip
+$ unzip code.zip
 ```
-
 
 
 #### 2.2 创建数据库和数据表
@@ -74,13 +73,11 @@ $ mysql -uroot lesson7 < dump.sql
 
 #### 2.3 安装前端环境
 
-更新安装源
+- 更新安装源
 
 ```shell
 $ sudo apt-get update
 ```
-
-
 
 - 安装`node`、 `npm`和`cnpm`
 
@@ -96,26 +93,35 @@ $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 ##### 2.4.1 启动后端java项目
 
-在终端中输入如下命令，启动java web项目
+在web IDE界面中，选择File -> Open Workspace切换工作空间，选择lesson10目录，必须切换到该目录下，否则识别不了项目。在终端中输入如下命令，启动java web项目
 
 ```shell
 $ mvn spring-boot:run
 ```
 
-##### 2.4.2修改react端口
+##### 2.4.2安装前端相关包
 
-修改react启动端口为8080，在前端项目路径中找到`/front-end/health/node_modules/react-scripts/start.js` 这个文件，搜索默认的`3000`端口，替换为`8080`
-
-##### 2.4.3启动前端react项目
-
-打开另外一个终端中输入如下命令，安装相关的包，并且前端项目
+打开另外一个终端中输入如下命令，安装相关的包
 
 ```shell
+$ cd ../code-front-end/health
 $ cnpm install
+```
+##### 2.4.3修改react端口
+
+修改react启动端口为8080，在前端项目路径中找到`code-front-end/health/node_modules/react-scripts/start.js` 这个文件，搜索默认的`3000`端口，替换为`8080`
+
+```shell
+$ vim node_modules/react-scripts/start.js
+```
+
+##### 2.4.4启动前端react项目
+
+```shell
 $ npm start
 ```
 
-##### 2.4.4连接web服务
+##### 2.4.5连接web服务
 
 点击工具-Web服务，打开以下网页测试
 

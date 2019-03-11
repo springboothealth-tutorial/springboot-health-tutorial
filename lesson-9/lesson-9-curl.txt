@@ -1,0 +1,17 @@
+curl -X POST http://localhost:8080/user/login -H "Content-Type:application/json" -d '{"name":"jacky", "password":"abc123"}' | jq
+
+keys *
+
+curl -X POST http://localhost:8080/user/login -H "Content-Type:application/json" -d '{"name":"jacky", "password":"112233"}' | jq
+
+curl -X GET http://localhost:8080/user/test | jq
+
+curl -X GET http://localhost:8080/user/test?token=f934a494-e4bf-407b-ac23-6027e2f30743 | jq
+
+curl -X GET http://localhost:8080/user/test?token=111111 | jq
+
+curl -X POST http://localhost:8080/user/login -H "Content-Type:application/json" -d '{"name":"jacky", "password":"abc123"}' | jq
+
+curl -X GET http://localhost:8080/user/test?token=f934a494-e4bf-407b-ac23-6027e2f30743 | jq
+
+curl -X GET http://localhost:8080/user/logout?token=fc008a3e-7bc1-4a9d-9941-55ff411f14fc | jq

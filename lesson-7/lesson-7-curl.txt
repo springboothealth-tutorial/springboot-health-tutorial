@@ -1,0 +1,51 @@
+curl -v -X GET "http://localhost:8080/api/v1/food/list?pageNum=1&pageSize=6"
+
+curl -v -X GET "http://localhost:8080/api/v1/food/get?id=1"
+
+curl -v -X POST "http://localhost:8080/api/v1/food/add" -H "Content-Type:application/json" -d '{"name":"1111", "description":"111", "foodEnergy":"111"}'
+
+select * from food;
+
+curl -v -X PUT "http://localhost:8080/api/v1/food/edit" -H "Content-Type:application/json" -d '{"id":6, "name":"222", "description":"222", "foodEnergy":"222"}'
+
+select * from food;
+
+curl -v -X DELETE "http://localhost:8080/api/v1/food/delete?id=6"
+
+select * from food;
+
+
+
+
+
+curl -v -X POST "http://localhost:8080/api/v1/user_food_history/add" -H "Content-Type:application/json" -d '{"userId":"2", "food":{"id":5}, "foodQuantity":"100","collectDate":"2019-01-06"}'
+
+curl -v -X GET "http://localhost:8080/api/v1/user_food_history/get?userId=2"
+
+
+
+
+
+curl -v -X GET "http://localhost:8080/api/v1/sport/get?id=1"
+
+curl -v -X POST "http://localhost:8080/api/v1/sport/add" -H "Content-Type:application/json" -d '{"name":"555", "description":"555", "consumeEnergy":"555"}'
+
+curl -v -X PUT "http://localhost:8080/api/v1/sport/edit" -H "Content-Type:application/json" -d '{"id":5, "name":"111", "description":"111", "consumeEnergy":"111"}'
+
+curl -v -X DELETE "http://localhost:8080/api/v1/sport/delete?id=5"
+
+curl -v -X GET "http://localhost:8080/api/v1/sport/list?pageNum=1&pageSize=4"
+
+
+
+
+
+curl -v -X POST "http://localhost:8080/api/v1/user_sport_history/add" -H "Content-Type:application/json" -d '{"userId":"2", "sport":{"id":4}, "sportTime":"2","collectDate":"2019-01-06"}'
+
+curl -v -X GET "http://localhost:8080/api/v1/user_sport_history/get?userId=2"
+
+
+
+
+
+

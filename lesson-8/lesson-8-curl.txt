@@ -1,0 +1,22 @@
+curl -v -X GET "http://localhost:8080/doctor/find?id=2"
+
+curl -v -X POST "http://localhost:8080/doctor/add" -H "Content-Type:application/json" -d '{"name":"123", "gender":"123", "education":"123", "certificateId":"123"}'
+
+curl -v -X PUT "http://localhost:8080/doctor/modify" -H "Content-Type:application/json" -d '{"id":3, "name":"111", "gender":"111", "education":"111", "certificateId":"111"}'
+
+curl -v -X DELETE "http://localhost:8080/doctor/delete?id=3"
+
+select * from account;
+
+curl -v -X POST "http://localhost:8080/transfer" -H "Content-Type:application/json" -d '{"userId":1, "doctorId":2, "money":200}'
+
+select * from account;
+
+curl -v -X POST "http://localhost:8080/transfer" -H "Content-Type:application/json" -d '{"userId":1, "doctorId":2, "money":200}'
+
+select * from account;
+
+curl -v -X POST "http://localhost:8080/transfer" -H "Content-Type:application/json" -d '{"userId":1, "doctorId":2, "money":200}'
+
+select * from account;
+

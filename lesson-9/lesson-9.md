@@ -1032,7 +1032,7 @@ $ mvn spring-boot:run
 
 安装`jq`
 
-```shel
+```shell
 $ sudo apt-get install -y jq 
 ```
 
@@ -1040,40 +1040,68 @@ $ sudo apt-get install -y jq
 
 - 使用正确的账号密码登录，成功获取用户信息和token
 
+```shell
+$ curl -X POST http://localhost:8080/user/login -H "Content-Type:application/json" -d '{"name":"jacky", "password":"abc123"}' | jq
+```
+
 ![](./pic/2-17-1.JPG)
 
 - 成功登录后，redis存储了两对键值对信息
   - key：token，value：用户信息，该键值对记录用户信息
   - key： userId，value：token，该键值对防止一个账号被多个用户登录
 
+```shell
+$ keys *
+```
 ![](./pic/2-17-2.JPG)
 
 - 用户名、密码错误，无法登录
 
+```shell
+$ curl -X POST http://localhost:8080/user/login -H "Content-Type:application/json" -d '{"name":"jacky", "password":"112233"}' | jq
+```
 ![](./pic/2-17-3.JPG)
 
 - 访问其他接口没有携带token参数，访问失败
 
+```shell
+$ curl -X GET http://localhost:8080/user/test | jq
+```
 ![](./pic/2-17-4.JPG)
 
 - 访问其他接口携带正确的token参数，成功访问
 
+```shell
+$ curl -X GET http://localhost:8080/user/test?token=51c9ab97-191d-487b-b137-62e837f27f50 | jq
+```
 ![](./pic/2-17-5.JPG)
 
 - 访问其他接口携带错误的、伪造的token参数，访问失败
 
+```shell
+$ curl -X GET http://localhost:8080/user/test?token=111111 | jq
+```
 ![](./pic/2-17-6.JPG)
 
 - 另外一个用户使用正确的账号、密码成功登录
 
+```shell
+$ curl -X POST http://localhost:8080/user/login -H "Content-Type:application/json" -d '{"name":"jacky", "password":"abc123"}' | jq
+```
 ![](./pic/2-17-7.JPG)
 
 - 之前登录的用户被“顶下去”，类似于视频网站VIP会员的机制，一个VIP账号不允许多个人使用
 
+```shell
+$ curl -X GET http://localhost:8080/user/test?token=51c9ab97-191d-487b-b137-62e837f27f50 | jq
+```
 ![](./pic/2-17-8.JPG)
 
 - 注销
 
+```shell
+$ curl -X GET http://localhost:8080/user/logout?token=4170a069-efe5-4fef-bacb-46de3c02e687 | jq
+```
 ![](./pic/2-17-9.JPG)
 
 

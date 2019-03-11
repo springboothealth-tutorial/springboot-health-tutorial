@@ -1429,46 +1429,82 @@ $ mvn spring-boot:run
 
 - 显示指定`doctor`的信息
 
+```shell
+$ curl -v -X GET "http://localhost:8080/doctor/find?id=2"
+```
+
 ![2-13-1](./pic/2-13-1.JPG)
 
 - 创建`doctor`
 
+```shell
+$ curl -v -X POST "http://localhost:8080/doctor/add" -H "Content-Type:application/json" -d '{"name":"123", "gender":"123", "education":"123", "certificateId":"123"}'
+```
+
 ![2-13-2](./pic/2-13-2.JPG)
 
 - 修改指定`doctor`信息
+```shell
+$ curl -v -X PUT "http://localhost:8080/doctor/modify" -H "Content-Type:application/json" -d '{"id":3, "name":"111", "gender":"111", "education":"111", "certificateId":"111"}'
+```
 
 ![2-13-3](./pic/2-13-3.JPG)
 
 - 删除指定`doctor`
 
+```shell
+$ curl -v -X DELETE "http://localhost:8080/doctor/delete?id=3"
+```
 ![2-13-4](./pic/2-13-4.JPG)
 
 - `table account`原始数据
 
+```mysql
+mysql> select * from account;
+```
 ![2-13-5](./pic/2-13-5.JPG)
 
 - 转账接口`userId=1`向`doctorId=2`转账`200`
 
+
+```shell
+$ curl -v -X POST "http://localhost:8080/transfer" -H "Content-Type:application/json" -d '{"userId":1, "doctorId":2, "money":200}'
+```
 ![2-13-6](./pic/2-13-6.JPG)
 
 - 转账后，`table account`数据
 
+```mysql
+mysql> select * from account;
+```
 ![2-13-7](./pic/2-13-7.JPG)
 
 - 将`2.9`中`AccountServiceImpl.java`中的注释去掉，暴露运行异常，重启程序。调用转账接口
 
+```shell
+$ curl -v -X POST "http://localhost:8080/transfer" -H "Content-Type:application/json" -d '{"userId":1, "doctorId":2, "money":200}'
+```
 ![2-13-8](./pic/2-13-8.JPG)
 
 - 即便程序发生异常，但是`table account`数据依然一致，体现了事务一致性
 
+```mysql
+mysql> select * from account;
+```
 ![2-13-9](./pic/2-13-9.JPG)
 
 - 将`2.9`中`AccountServiceImpl.java`中的`@Transactional`去掉，重启程序。
 
+```shell
+$ curl -v -X POST "http://localhost:8080/transfer" -H "Content-Type:application/json" -d '{"userId":1, "doctorId":2, "money":200}'
+```
 ![2-13-10](./pic/2-13-10.JPG)
 
 - 缺少Mybatis的事务支持，`table account`中数据不一致
 
+```mysql
+mysql> select * from account;
+```
 ![2-13-11](./pic/2-13-11.JPG)
 
 
